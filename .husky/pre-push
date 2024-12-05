@@ -1,1 +1,1 @@
-npm run format && npm run build && npm run commit
+npm run format && npm run build && npm run commit && git push

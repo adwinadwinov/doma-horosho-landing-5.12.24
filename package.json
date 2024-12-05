@@ -8,7 +8,7 @@
     "build": "vite build",
     "preview": "vite preview",
     "format": "npx prettier --write '**/*.js' '**/*.scss' '**/*.html'",
-    "commit": "git add ./docs && git commit -m 'feat: Сделан билд' ./docs",
+    "commit": "git add . && git commit -m 'feat: Сделан билд' .",
     "prepare": "husky"
   },
   "devDependencies": {
