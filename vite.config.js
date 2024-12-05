@@ -15,5 +15,6 @@ export default defineConfig({
     modulePreload: {
       polyfill: false,
     },
+    outDir: "docs",
   },
 });
