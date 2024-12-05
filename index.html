@@ -11,6 +11,31 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Дома хорошо</title>
+    <!-- Marquiz script start -->
+    <script>
+      (function (w, d, s, o) {
+        var j = d.createElement(s);
+        j.async = true;
+        j.src = "//script.marquiz.ru/v2.js";
+        j.onload = function () {
+          if (document.readyState !== "loading") Marquiz.init(o);
+          else
+            document.addEventListener("DOMContentLoaded", function () {
+              Marquiz.init(o);
+            });
+        };
+        d.head.insertBefore(j, d.head.firstElementChild);
+      })(window, document, "script", {
+        host: "//dom-horosho.ru/",
+        region: "eu",
+        id: "",
+        autoOpen: 29,
+        autoOpenFreq: "once",
+        openOnExit: true,
+        disableOnMobile: true,
+      });
+    </script>
+    <!-- Marquiz script end -->
   </head>
   <body>
     <div class="wrapper">
@@ -320,7 +345,28 @@
         </section>
 
         <!-- ---------- MARQUIZ ---------- -->
-        <section class="marquiz section"></section>
+        <section class="marquiz section">
+          <div data-marquiz-id="" style="max-width: none !important; margin: 0; border-radius: 2rem; overflow: hidden;"></div>
+        </section>
+        <script>
+          (function (t, p) {
+            window.Marquiz
+              ? Marquiz.add([t, p])
+              : document.addEventListener("marquizLoaded", function () {
+                  Marquiz.add([t, p]);
+                });
+          })("Inline", {
+            id: "",
+            host: '//dom-horosho.ru/',
+            buttonText: "Начать расчёт",
+            bgColor: "#768A71",
+            textColor: "#ffffff",
+            rounded: true,
+            shadow: "rgba(58, 199, 113, 0.5)",
+            blicked: true,
+            buttonOnMobile: false,
+          });
+        </script>
 
         <!-- ---------- ABOUT ---------- -->
         <section class="about section"></section>
