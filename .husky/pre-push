@@ -1,1 +1,7 @@
-npm run format && npm run build && npm run commit && git push
+#!/bin/sh
+. "$(dirname "$0")/_/husky.sh"  
+
+npm run format
+npm run build
+git add . && git commit -m 'feat: Создан билд' || true
+git push
