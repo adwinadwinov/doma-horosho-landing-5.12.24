@@ -4,4 +4,3 @@
 npm run format
 npm run build
 git add . && git commit -m 'feat: Создан билд' || true
-git push
