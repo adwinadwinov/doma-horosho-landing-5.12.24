@@ -1,0 +1,65 @@
+.hero {
+  display: flex;
+  flex-direction: row;
+  height: 48.2rem;
+}
+
+.hero-intro,
+.hero-preview {
+  width: 50%;
+  flex-shrink: 0;
+  background-color: var(--dh-white);
+  border-radius: var(--dh-border-radius);
+  position: relative;
+  overflow: hidden;
+}
+
+.hero-intro {
+  padding: 5.5rem var(--dh-conteiner-padding);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  &__header {
+    font-size: 5rem;
+    line-height: 5rem;
+    font-weight: 500;
+    color: var(--dh-jet);
+    letter-spacing: 0.5px;
+  }
+
+  &__advantages,
+  &__button,
+  &__header {
+    position: relative;
+    z-index: 2;
+  }
+
+  &__decor {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+  }
+
+  &__button {
+    width: fit-content;
+    height: 6.2rem;
+    padding: 2.2rem 2rem;
+    letter-spacing: 0.1px;
+  }
+}
+
+.hero-preview {
+  &__img {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+  }
+
+  &__badge {
+    bottom: 3.2rem;
+    left: 3.8rem;
+    position: absolute;
+  }
+}

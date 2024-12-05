@@ -1,0 +1,26 @@
+html {
+  scroll-behavior: smooth;
+  font-size: 62.5%;
+}
+
+body {
+  background-color: var(--dh-alabaster);
+  height: 7rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  font-family: "Montserrat", sans-serif;
+  overflow-x: hidden;
+}
+
+.wrapper {
+  max-width: 136.6rem;
+  margin: 0 auto;
+  width: 100%;
+  min-height: 100vh;
+  font-size: 1.4rem;
+  color: var(--dh-jet);
+  display: flex;
+  flex-direction: column;
+  gap: var(--dh-sections-gap);
+}

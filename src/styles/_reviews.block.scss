@@ -1,0 +1,41 @@
+.reviews {
+  background-color: var(--dh-white);
+
+  &__header {
+    margin-bottom: 2rem;
+  }
+}
+
+.review-card {
+  height: 27.4rem;
+  width: 18.6rem;
+  border-radius: 2rem;
+  position: relative;
+  overflow: hidden;
+  color: var(--dh-white);
+  @include flex-center;
+
+  &__meta {
+    position: absolute;
+    bottom: 2rem;
+    left: 1.2rem;
+  }
+
+  &__preview {
+    position: absolute;
+    inset: 0;
+    object-fit: cover;
+    height: 100%;
+  }
+
+  &__gradient {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+  }
+
+  &__play {
+    position: relative;
+    z-index: 2;
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "name": "doma-horosho",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "format": "npx prettier --write '**/*.js' '**/*.scss' '**/*.html'",
+    "commit": "git add ./dist && git commit -m 'feat: Сделан билд' ./dist",
+    "prepare": "husky"
+  },
+  "devDependencies": {
+    "husky": "^9.1.7",
+    "prettier": "^3.4.2",
+    "sass": "^1.82.0",
+    "vite": "^6.0.1"
+  }
+}

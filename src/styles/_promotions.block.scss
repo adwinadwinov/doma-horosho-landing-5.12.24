@@ -1,0 +1,90 @@
+.promotions {
+  &__header {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+  }
+
+  &__swiper-navigation {
+    @include flex-row;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+
+  &__swiper-next,
+  &__swiper-prev {
+    width: 6.2rem;
+    height: 6.2rem;
+    border-radius: 0.8rem;
+    background-color: var(--dh-white);
+  }
+}
+
+.promotion-card {
+  height: 32rem;
+  width: 40.5rem;
+  border-radius: 4rem;
+  background-color: var(--dh-white);
+  color: var(--dh-jet);
+  padding: 2.8rem 2rem 4rem 3rem;
+  @include flex-col;
+  justify-content: space-between;
+
+  &--primary {
+    background-color: var(--dh-orange);
+    color: var(--dh-white);
+
+    & .promotion-card__title {
+      opacity: 0.4;
+    }
+
+    & .promotion-card__title,
+    .promotion-card__text,
+    .promotion-card__button {
+      color: inherit;
+    }
+
+    & .promotion-card__button > svg {
+      stroke: var(--dh-white);
+    }
+  }
+
+  &__title {
+    font-size: 8rem;
+    letter-spacing: 0.2rem;
+    line-height: 0.7;
+    text-align: right;
+    color: var(--dh-alabaster);
+    letter-spacing: -7px;
+  }
+
+  &__content {
+    @include flex-col;
+  }
+
+  &__text {
+    color: var(--dh-jet);
+    font-size: 2.6rem;
+    font-weight: 500;
+    width: fit-content;
+  }
+
+  &__button {
+    background-color: transparent;
+    color: var(--dh-green);
+    width: fit-content;
+    padding-left: 0;
+    padding-right: 0;
+    height: 6.2rem;
+    gap: 1rem;
+
+    &:hover {
+      background-color: transparent;
+    }
+
+    & > svg {
+      stroke: var(--dh-green);
+    }
+  }
+}

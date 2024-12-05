@@ -1,0 +1,23 @@
+// -------------- BASE -------------- //
+
+@use "./reset";
+@use "./variables" as *;
+@use "./base";
+@use "./mixins" as *;
+@import "./swiper";
+
+// -------------- BLOCKS -------------- //
+
+@import "./common.blocks";
+@import "./header.block";
+@import "./hero.block";
+@import "./catalog";
+@import "./promotions.block";
+@import "./reviews.block";
+@import "./marquiz.block";
+@import "./about.block";
+@import "./footer.block";
+
+// -------------- MEDIA -------------- //
+
+@import "./media";
