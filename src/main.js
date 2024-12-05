@@ -1,29 +1,31 @@
 import "./styles/main.scss";
 
-new Swiper(".reviews__swiper", {
-  loop: false,
-  slidesPerView: "auto",
-  spaceBetween: 32,
-  freeMode: true,
+window.addEventListener("DOMContentLoaded", () => {
+  new Swiper(".reviews__swiper", {
+    loop: false,
+    slidesPerView: "auto",
+    spaceBetween: 32,
+    freeMode: true,
 
-  navigation: {
-    nextEl: ".reviews__swiper-next",
-    prevEl: ".reviews__swiper-prev",
-  },
-});
+    navigation: {
+      nextEl: ".reviews__swiper-next",
+      prevEl: ".reviews__swiper-prev",
+    },
+  });
 
-new Swiper(".promotions__swiper", {
-  loop: false,
-  slidesPerView: "auto",
-  spaceBetween: 32,
-  freeMode: true,
+  new Swiper(".promotions__swiper", {
+    loop: false,
+    slidesPerView: "auto",
+    spaceBetween: 32,
+    freeMode: true,
 
-  navigation: {
-    nextEl: ".promotions__swiper-next",
-    prevEl: ".promotions__swiper-prev",
-  },
-});
+    navigation: {
+      nextEl: ".promotions__swiper-next",
+      prevEl: ".promotions__swiper-prev",
+    },
+  });
 
-Fancybox.bind("[data-fancybox]", {
-  // Дополнительные настройки (если нужны)
+  Fancybox.bind("[data-fancybox]", {
+    // Дополнительные настройки (если нужны)
+  });
 });

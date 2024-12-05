@@ -1,6 +1,7 @@
 import { defineConfig } from "vite";
 
 export default defineConfig({
+  base: "./",
   build: {
     rollupOptions: {
       output: {
@@ -10,6 +11,7 @@ export default defineConfig({
       },
     },
     assetsInlineLimit: 0,
+    manualChunks: undefined,
     sourcemap: false,
     minify: false,
     modulePreload: {
@@ -17,4 +19,12 @@ export default defineConfig({
     },
     outDir: "docs",
   },
+  plugins: [
+    {
+      name: "crossorigin",
+      transformIndexHtml(html) {
+        return html.replace(/crossorigin/g, "");
+      },
+    },
+  ],
 });
