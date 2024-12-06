@@ -20,6 +20,7 @@
     position: absolute;
     top: 50%;
     z-index: 5;
+    box-shadow: 0 0 1.4rem #00000040;
   }
 
   &__swiper-prev {
@@ -30,6 +31,10 @@
   &__swiper-next {
     right: 1px;
     transform: translateY(-50%);
+  }
+
+  &__swiper-wrapper {
+    position: relative;
   }
 }
 
