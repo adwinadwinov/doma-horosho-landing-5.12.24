@@ -105,6 +105,7 @@ legend {
   --dh-grey: #dbd4d7;
   --dh-dark-grey: #737577;
   --dh-green-hover: #91a18d;
+  --dh-brown: #66595b;
   --dh-border-radius: 4rem;
   --dh-conteiner-padding: 4.3rem;
   --dh-section-padding-y: 4rem;
@@ -233,6 +234,10 @@ body {
 .link__icon {
   width: 2.6rem;
   height: 2.6rem;
+  fill: var(--dh-green);
+}
+.link:hover {
+  text-decoration: underline;
 }
 .logo {
   flex-shrink: 0;
@@ -265,6 +270,28 @@ h2 {
 }
 .play__img {
   margin-left: 0.2rem;
+}
+.divider {
+  height: 1px;
+  background-color: var(--dh-white);
+}
+.up {
+  display: block;
+  width: 6.2rem;
+  height: 6.2rem;
+  border-radius: 10rem;
+  background-color: var(--dh-brown);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(90deg);
+  transition: background ease 0.3s;
+}
+.up__img {
+  stroke: var(--dh-white);
+}
+.up:hover {
+  background-color: var(--dh-jet);
 }
 .header {
   background-color: var(--dh-white);
@@ -362,6 +389,25 @@ h2 {
   height: 6.2rem;
   border-radius: 0.8rem;
   background-color: var(--dh-white);
+  border: 0.2rem solid var(--dh-white);
+  transition: background ease 0.3s, opacity ease 0.3s;
+}
+.promotions__swiper-next:hover, .promotions__swiper-prev:hover {
+  background-color: var(--dh-green);
+}
+.promotions__swiper-next:hover .promotions__swiper-img, .promotions__swiper-prev:hover .promotions__swiper-img {
+  stroke: var(--dh-white);
+}
+.promotions__swiper-next {
+  transform: rotate(180deg);
+}
+.promotions .swiper-button-disabled {
+  opacity: 0.5;
+  pointer-events: none;
+}
+.promotions__swiper-img {
+  transition: stroke ease 0.3s;
+  stroke: var(--dh-jet);
 }
 .promotion-card {
   height: 32rem;
@@ -415,9 +461,11 @@ h2 {
   padding-right: 0;
   height: 6.2rem;
   gap: 1rem;
+  transition: gap ease 0.3s;
 }
 .promotion-card__button:hover {
   background-color: transparent;
+  gap: 2rem;
 }
 .promotion-card__button > svg {
   stroke: var(--dh-green);
@@ -625,9 +673,117 @@ h2 {
 .footer {
   background-color: var(--dh-green);
   width: 100%;
-  height: 8rem;
   flex-shrink: 0;
   border-radius: var(--dh-border-radius) var(--dh-border-radius) 0 0;
+  display: flex;
+  flex-direction: column;
+  color: var(--dh-white);
+  padding-bottom: 1.4rem;
+  position: relative;
+}
+.footer__top {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.footer__divider {
+  margin-top: 2rem;
+  margin-bottom: 1.4rem;
+}
+.footer__policy {
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 400;
+  color: var(--dh-white);
+}
+.footer__policy:hover {
+  text-decoration: underline;
+}
+.footer__up {
+  position: absolute;
+  top: -2.5rem;
+  right: var(--dh-conteiner-padding);
+}
+.footer-left {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  align-items: start;
+}
+.footer-left__adress {
+  max-width: 23.8rem;
+  align-items: start;
+}
+.footer-left__logo {
+  width: 16.6rem;
+}
+.footer-left__info {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+.footer-left__up {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.footer-right {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+  gap: 1.2rem;
+}
+.footer-right__button {
+  width: fit-content;
+}
+.adress {
+  display: flex;
+  flex-direction: row;
+}
+.phone {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+.phone__number {
+  color: var(--dh-white);
+  font-size: 2rem;
+  font-weight: 600;
+}
+.phone__img {
+  fill: var(--dh-white) !important;
+}
+.phone__sub {
+  font-size: 1.2rem;
+  font-weight: 400;
+}
+.socials {
+  display: flex;
+  flex-direction: row;
+  justify-content: end;
+  gap: 1.2rem;
+}
+.socials__img {
+  fill: var(--dh-jet);
+  transition: fill ease 0.3s;
+}
+.socials__link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 1rem;
+  background-color: var(--dh-alabaster);
+  transition: all ease 0.3s;
+  border: 1px solid var(--dh-alabaster);
+  width: 4.8rem;
+  height: 4.8rem;
+  transition: border ease 0.3s;
+}
+.socials__link:hover {
+  border-color: var(--dh-green);
+}
+.socials__link:hover .socials__img {
+  fill: var(--dh-green);
 }
 @media screen and (max-width: 1024px) {
   :root {

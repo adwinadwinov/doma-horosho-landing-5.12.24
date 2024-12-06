@@ -109,6 +109,11 @@
   &__icon {
     width: 2.6rem;
     height: 2.6rem;
+    fill: var(--dh-green);
+  }
+
+  &:hover {
+    text-decoration: underline;
   }
 }
 
@@ -146,5 +151,29 @@ h2 {
 
   &__img {
     margin-left: 0.2rem;
+  }
+}
+
+.divider {
+  height: 1px;
+  background-color: var(--dh-white);
+}
+
+.up {
+  display: block;
+  width: 6.2rem;
+  height: 6.2rem;
+  border-radius: 10rem;
+  background-color: var(--dh-brown);
+  @include flex-center;
+  transform: rotate(90deg);
+  transition: background ease 0.3s;
+
+  &__img {
+    stroke: var(--dh-white);
+  }
+
+  &:hover {
+    background-color: var(--dh-jet);
   }
 }
