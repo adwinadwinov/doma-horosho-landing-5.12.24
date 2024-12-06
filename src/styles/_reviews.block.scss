@@ -4,6 +4,33 @@
   &__header {
     margin-bottom: 2rem;
   }
+
+  & .swiper-button-disabled {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  &__swiper-prev,
+  &__swiper-next {
+    transition: opacity ease 0.3s;
+    background-color: var(--dh-white);
+    border-radius: 10rem;
+    width: 4.6rem;
+    height: 4.6rem;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+  }
+
+  &__swiper-prev {
+    transform: translateY(-50%) rotate(180deg);
+    left: 1px;
+  }
+
+  &__swiper-next {
+    right: 1px;
+    transform: translateY(-50%);
+  }
 }
 
 .review-card {
@@ -13,6 +40,7 @@
   position: relative;
   overflow: hidden;
   color: var(--dh-white);
+  border: 1px solid var(--dh-grey);
   @include flex-center;
 
   &__meta {
@@ -37,5 +65,32 @@
   &__play {
     position: relative;
     z-index: 2;
+  }
+
+  &__hover {
+    opacity: 0;
+    transition: opacity ease 0.3s;
+  }
+
+  &:hover &__hover {
+    opacity: 1;
+  }
+
+  &__autor,
+  &__kitchen {
+    transition: transform ease 0.3s;
+  }
+
+  &__autor {
+    transform: translateY(1rem);
+  }
+
+  &__kitchen {
+    transform: translateY(1.5rem);
+  }
+
+  &:hover &__autor,
+  &:hover &__kitchen {
+    transform: translateY(0);
   }
 }
