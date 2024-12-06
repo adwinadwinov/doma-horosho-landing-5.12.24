@@ -18,6 +18,32 @@
     height: 6.2rem;
     border-radius: 0.8rem;
     background-color: var(--dh-white);
+    border: 0.2rem solid var(--dh-white);
+    transition:
+      background ease 0.3s,
+      opacity ease 0.3s;
+
+    &:hover {
+      background-color: var(--dh-green);
+
+      & .promotions__swiper-img {
+        stroke: var(--dh-white);
+      }
+    }
+  }
+
+  &__swiper-next {
+    transform: rotate(180deg);
+  }
+
+  & .swiper-button-disabled {
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  &__swiper-img {
+    transition: stroke ease 0.3s;
+    stroke: var(--dh-jet);
   }
 }
 
@@ -78,9 +104,11 @@
     padding-right: 0;
     height: 6.2rem;
     gap: 1rem;
+    transition: gap ease 0.3s;
 
     &:hover {
       background-color: transparent;
+      gap: 2rem;
     }
 
     & > svg {
