@@ -51,7 +51,12 @@
 
 .footer-right {
   @include flex-col;
+  align-items: end;
   gap: 1.2rem;
+
+  &__button {
+    width: fit-content;
+  }
 }
 
 .adress {

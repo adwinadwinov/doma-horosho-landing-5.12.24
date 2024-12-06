@@ -111,6 +111,10 @@
     height: 2.6rem;
     fill: var(--dh-green);
   }
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 
 .logo {
