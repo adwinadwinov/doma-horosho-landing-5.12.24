@@ -6,6 +6,7 @@
   @include flex-col;
   color: var(--dh-white);
   padding-bottom: 1.4rem;
+  position: relative;
 
   &__top {
     @include flex-row;
@@ -27,6 +28,12 @@
       text-decoration: underline;
     }
   }
+
+  &__up {
+    position: absolute;
+    top: -2.5rem;
+    right: var(--dh-conteiner-padding);
+  }
 }
 
 .footer-left {
@@ -46,6 +53,12 @@
   &__info {
     @include flex-col;
     gap: 2rem;
+  }
+
+  &__up {
+    position: absolute;
+    top: 0;
+    right: 0;
   }
 }
 
