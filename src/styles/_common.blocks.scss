@@ -254,6 +254,7 @@
   &__type {
     color: var(--dh-dark-grey);
     font-size: 1.4rem;
+    line-height: 2rem;
   }
 
   &__title {
@@ -263,7 +264,7 @@
   }
 }
 
-.card-rices {
+.card-prices {
   @include flex-col;
   color: var(--dh-green);
   align-items: end;
@@ -273,7 +274,7 @@
   }
 
   &__discount {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     line-height: 1.6rem;
     position: relative;
     width: fit-content;
@@ -315,6 +316,9 @@
   &__sub {
     text-align: center;
     margin-top: 0.4rem;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: var(--dh-dark-grey);
   }
 
   &__disc {
