@@ -4,15 +4,13 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet" />
+    <!-- <link rel="preload" href="fonts/Montserrat-Regular.woff2" as="font" /> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <title>Дома хорошо</title>
     <!-- Marquiz script start -->
-    <script>
+    <!-- <script>
       (function (w, d, s, o) {
         var j = d.createElement(s);
         j.async = true;
@@ -34,7 +32,7 @@
         openOnExit: true,
         disableOnMobile: true,
       });
-    </script>
+    </script> -->
     <!-- Marquiz script end -->
   </head>
   <body>
@@ -118,7 +116,59 @@
         </section>
 
         <!-- ---------- CATALOG ---------- -->
-        <section class="catalog section"></section>
+        <section class="catalog section">
+          <div class="tabs" data-default-value="kitchens" role="tabpanel">
+            <div class="tabs-triggers catalog__tabs-triggers" role="tablist" aria-orientation="horizontal">
+              <button
+                class="tabs-triggers__btn"
+                id="kitchens-btn"
+                data-value="kitchens"
+                type="button"
+                role="tab"
+                aria-controls="kitchens-tab"
+                aria-selected="true"
+              >
+                Кухни
+              </button>
+              <button
+                class="tabs-triggers__btn"
+                id="wardrobes-btn"
+                data-value="wardrobes"
+                type="button"
+                role="tab"
+                aria-controls="wardrobes-tab"
+                aria-selected="false"
+              >
+                Шкафы
+              </button>
+              <div class="tabs-indicator">
+                <div class="tabs-indicator__slide"></div>
+              </div>
+            </div>
+            <div class="tabs-content">
+              <div
+                class="tabs-content__panel"
+                id="kitchens-tab"
+                tabindex="0"
+                data-value="kitchens"
+                aria-labelledby="kitchens-btn"
+                role="tabpanel"
+              >
+                Кухни
+              </div>
+              <div
+                class="tabs-content__panel"
+                id="wardrobes-tab"
+                tabindex="0"
+                data-value="wardrobes"
+                aria-labelledby="wardrobes-btn"
+                role="tabpanel"
+              >
+                Шкафы
+              </div>
+            </div>
+          </div>
+        </section>
 
         <!-- ---------- PROMOTIONS ---------- -->
         <section class="promotions section">
@@ -389,10 +439,10 @@
         </section>
 
         <!-- ---------- MARQUIZ ---------- -->
-        <section class="marquiz section">
+        <!-- <section class="marquiz section">
           <div data-marquiz-id="" style="max-width: none !important; margin: 0; border-radius: 2rem; overflow: hidden"></div>
-        </section>
-        <script>
+        </section> -->
+        <!-- <script>
           (function (t, p) {
             window.Marquiz
               ? Marquiz.add([t, p])
@@ -410,7 +460,7 @@
             blicked: true,
             buttonOnMobile: false,
           });
-        </script>
+        </script> -->
 
         <!-- ---------- ABOUT ---------- -->
         <section class="about section">
@@ -542,6 +592,6 @@
     </div>
     <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <!-- <script src="/lib/fancybox.umd.js" defer></script> -->
-    <script type="module" src="/src/main.js" defer></script>
+    <script type="module" src="/src/main.js"></script>
   </body>
 </html>

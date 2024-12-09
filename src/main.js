@@ -1,4 +1,5 @@
 import "./styles/main.scss";
+import { Tabs } from "./tabs";
 
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -28,4 +29,6 @@ window.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {
     // Дополнительные настройки (если нужны)
   });
+
+  new Tabs();
 });

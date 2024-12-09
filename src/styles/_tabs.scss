@@ -1,0 +1,77 @@
+:root {
+  --tab-indicator-bg-color: var(--dh-grey);
+  --tab-indicator-slide-color: var(--dh-jet);
+  --tab-trigger-color: var(--dh-dark-grey);
+  --tab-trigger-bg-color: var(--dh-white);
+  --tab-trigger-color-active: var(--dh-jet);
+  --tab-content-bg-color: var(--dh-white);
+  --tab-indicator-height: 0.2rem;
+}
+
+.tabs {
+  @include flex-col;
+  width: 100%;
+}
+
+.tabs-triggers {
+  @include flex-row;
+  position: relative;
+  background-color: var(--tab-trigger-bg-color);
+  gap: 1rem;
+
+  &__btn {
+    padding: 0.8rem 1.2rem;
+    color: var(--tab-trigger-color);
+    font-size: 3.8rem;
+    transition:
+      color ease 0.3s,
+      opacity ease 0.3s;
+
+    &:hover {
+      opacity: 0.8;
+    }
+
+    &--active {
+      color: var(--tab-trigger-color-active);
+    }
+  }
+}
+
+.tabs-indicator {
+  position: relative;
+  height: var(--tab-indicator-height);
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  background-color: var(--tab-indicator-bg-color);
+
+  &__slide {
+    position: absolute;
+    bottom: 0;
+    height: var(--tab-indicator-height);
+    background-color: var(--tab-indicator-slide-color);
+    transition:
+      left ease 0.3s,
+      width ease 0.3s;
+  }
+}
+
+.tabs-content {
+  &__panel {
+    display: none;
+
+    &--active {
+      display: block;
+      animation: 0.5s ease-in-out 1 appearance;
+    }
+  }
+}
+
+@keyframes appearance {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

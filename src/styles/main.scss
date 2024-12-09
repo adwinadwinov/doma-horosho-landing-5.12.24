@@ -5,6 +5,7 @@
 @use "./base";
 @use "./mixins" as *;
 @import "./swiper";
+@import "./fonts";
 
 // -------------- BLOCKS -------------- //
 
@@ -17,6 +18,7 @@
 @import "./marquiz.block";
 @import "./about.block";
 @import "./footer.block";
+@import "./tabs";
 
 // -------------- MEDIA -------------- //
 
