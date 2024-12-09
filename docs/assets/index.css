@@ -182,6 +182,9 @@ body {
 .button--orange:hover {
   background-color: var(--dh-orange-hover);
 }
+.button--full {
+  width: 100%;
+}
 .logo-list {
   display: flex;
   flex-direction: row;
@@ -548,6 +551,23 @@ body {
 }
 .catalog__tabs-triggers {
   width: fit-content;
+}
+.catalog__grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 3.2rem;
+  row-gap: 3.2rem;
+  margin-top: 2rem;
+}
+.catalog__button {
+  margin-top: 2rem;
+  background-color: var(--dh-white);
+  border: 0.3rem solid var(--dh-green);
+  gap: 1rem;
+  color: var(--dh-green);
+}
+.catalog__button:hover {
+  background-color: var(--dh-alabaster);
 }
 .promotions__header {
   display: flex;
