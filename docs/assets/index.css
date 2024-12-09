@@ -383,28 +383,29 @@ body {
 .card-meta__type {
   color: var(--dh-dark-grey);
   font-size: 1.4rem;
+  line-height: 2rem;
 }
 .card-meta__title {
   color: var(--dh-jet);
   font-weight: 500;
   font-size: 2rem;
 }
-.card-rices {
+.card-prices {
   display: flex;
   flex-direction: column;
   color: var(--dh-green);
   align-items: end;
 }
-.card-rices__price {
+.card-prices__price {
   font-size: 1.8rem;
 }
-.card-rices__discount {
-  font-size: 1.4rem;
+.card-prices__discount {
+  font-size: 1.2rem;
   line-height: 1.6rem;
   position: relative;
   width: fit-content;
 }
-.card-rices__discount::after {
+.card-prices__discount::after {
   content: "";
   position: absolute;
   width: 100%;
@@ -439,6 +440,9 @@ body {
 .card-footer__sub {
   text-align: center;
   margin-top: 0.4rem;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  color: var(--dh-dark-grey);
 }
 .card-footer__disc {
   max-height: 0;
