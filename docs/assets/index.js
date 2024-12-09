@@ -89,6 +89,14 @@ window.addEventListener("DOMContentLoaded", () => {
       prevEl: ".promotions__swiper-prev"
     }
   });
+  new Swiper(".card__swiper", {
+    loop: true,
+    slidesPerView: 1,
+    navigation: {
+      nextEl: ".card__swiper-next",
+      prevEl: ".card__swiper-prev"
+    }
+  });
   Fancybox.bind("[data-fancybox]", {
     // Дополнительные настройки (если нужны)
   });
