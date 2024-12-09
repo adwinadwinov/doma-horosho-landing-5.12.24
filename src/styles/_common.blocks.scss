@@ -126,7 +126,7 @@
   border-radius: var(--dh-border-radius);
 }
 
-h2 {
+.h2 {
   color: var(--dh-jet);
   font-size: 3.8rem;
 }
@@ -155,6 +155,7 @@ h2 {
 }
 
 .divider {
+  width: 100%;
   height: 1px;
   background-color: var(--dh-white);
 }
@@ -175,5 +176,176 @@ h2 {
 
   &:hover {
     background-color: var(--dh-jet);
+  }
+}
+
+.card {
+  max-width: 40rem;
+  height: 38rem;
+  border-radius: 0.8rem;
+  overflow: hidden;
+  background-color: var(--dh-white);
+  border: 1px solid var(--dh-grey);
+  position: relative;
+
+  &__img {
+    width: 100%;
+    transition: transform ease-out 0.3s;
+  }
+
+  &__swiper {
+    height: calc(100% - 15.8rem);
+
+    &:hover .card__img {
+      transform: scale(1.1);
+    }
+  }
+
+  &__swiper-slide {
+    overflow: hidden;
+  }
+
+  &__swiper-prev,
+  &__swiper-next {
+    transition: background ease 0.3s;
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 0.8rem;
+    width: 2.6rem;
+    height: 2.6rem;
+    position: absolute;
+    top: 50%;
+    z-index: 5;
+    opacity: 0.7;
+    @include flex-center;
+
+    & > img {
+      width: 1.6rem;
+      height: 1.6rem;
+    }
+
+    &:hover {
+      background-color: rgba(255, 255, 255, 1);
+    }
+  }
+
+  &__swiper-prev {
+    transform: translateY(-50%) rotate(180deg);
+    left: 1px;
+  }
+
+  &__swiper-next {
+    right: 1px;
+    transform: translateY(-50%);
+  }
+
+  &__swiper-wrapper {
+    position: relative;
+  }
+}
+
+.card-meta {
+  @include flex-col;
+  gap: 0.4rem;
+
+  &__type {
+    color: var(--dh-dark-grey);
+    font-size: 1.4rem;
+  }
+
+  &__title {
+    color: var(--dh-jet);
+    font-weight: 500;
+    font-size: 2rem;
+  }
+}
+
+.card-rices {
+  @include flex-col;
+  color: var(--dh-green);
+  align-items: end;
+
+  &__price {
+    font-size: 1.8rem;
+  }
+
+  &__discount {
+    font-size: 1.4rem;
+    line-height: 1.6rem;
+    position: relative;
+    width: fit-content;
+
+    &::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 1px;
+      background-color: var(--dh-dark-grey);
+      bottom: 0.8rem;
+      left: 0;
+      rotate: -5deg;
+    }
+  }
+}
+
+.card-footer {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  @include flex-col;
+  padding: 1.6rem 1.2rem;
+  z-index: 5;
+  background-color: var(--dh-white);
+
+  &__content {
+    @include flex-col;
+  }
+
+  &__heading {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--dh-white);
+  }
+
+  &__sub {
+    text-align: center;
+    margin-top: 0.4rem;
+  }
+
+  &__disc {
+    max-height: 0;
+    overflow: hidden;
+    transition: all ease-out 0.3s;
+  }
+
+  &:hover .card-disc {
+    max-height: 15rem;
+  }
+}
+
+.card-disc {
+  @include flex-col;
+  gap: 0.8rem;
+  padding-bottom: 1.2rem;
+
+  &__item {
+    @include flex-row;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__propery {
+    color: var(--dh-dark-grey);
+  }
+
+  &__value {
+    color: var(--dh-jet);
+    font-size: 1.3rem;
+  }
+
+  &__divider {
+    background-color: var(--dh-grey);
+    margin-top: 1.2rem;
   }
 }
