@@ -27,6 +27,14 @@
       color ease 0.3s,
       opacity ease 0.3s;
 
+    @include xl-d {
+      font-size: 3rem;
+    }
+
+    @include md-d {
+      font-size: 2.6rem;
+    }
+
     &:hover {
       opacity: 0.8;
     }

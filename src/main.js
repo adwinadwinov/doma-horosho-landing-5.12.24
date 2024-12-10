@@ -40,5 +40,7 @@ window.addEventListener("DOMContentLoaded", () => {
     // Дополнительные настройки (если нужны)
   });
 
-  new Tabs();
+  new Tabs({
+    repaintOnresize: true,
+  });
 });

@@ -11,6 +11,15 @@
     column-gap: 3.2rem;
     row-gap: 3.2rem;
     margin-top: 2rem;
+
+    @include xl-d {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    @include sm-d {
+      grid-template-columns: 1fr;
+      row-gap: 1rem;
+    }
   }
 
   &__button {
@@ -19,6 +28,10 @@
     border: 0.3rem solid var(--dh-green);
     gap: 1rem;
     color: var(--dh-green);
+
+    @include sm-d {
+      margin-top: 1rem;
+    }
 
     &:hover {
       background-color: var(--dh-alabaster);

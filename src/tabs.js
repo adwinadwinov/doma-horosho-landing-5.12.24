@@ -5,9 +5,12 @@ export class Tabs {
   #_currentTab;
   #_indicatorSlide;
 
-  constructor(tabSelector = ".tabs") {
-    this.#_tabComponent = document.querySelector(tabSelector);
+  constructor({ tabSelector, repaintOnresize }) {
+    this.#_tabComponent = document.querySelector(tabSelector || ".tabs");
     this._initTabs();
+    if (repaintOnresize) {
+      this._resizeControl();
+    }
   }
 
   _initTabs() {
@@ -21,6 +24,12 @@ export class Tabs {
       tabTrigger.addEventListener("click", (e) => {
         this._changeActiveTab(e.target);
       });
+    });
+  }
+
+  _resizeControl() {
+    window.addEventListener("resize", () => {
+      this._handleIndicator(this.#_currentTab);
     });
   }
 
