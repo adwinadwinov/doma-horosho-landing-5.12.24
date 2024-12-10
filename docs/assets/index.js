@@ -1,43 +1,46 @@
-var __typeError = (msg) => {
-  throw TypeError(msg);
-};
-var __accessCheck = (obj, member, msg) => member.has(obj) || __typeError("Cannot " + msg);
-var __privateGet = (obj, member, getter) => (__accessCheck(obj, member, "read from private field"), getter ? getter.call(obj) : member.get(obj));
-var __privateAdd = (obj, member, value) => member.has(obj) ? __typeError("Cannot add the same private member more than once") : member instanceof WeakSet ? member.add(obj) : member.set(obj, value);
-var __privateSet = (obj, member, value, setter) => (__accessCheck(obj, member, "write to private field"), setter ? setter.call(obj, value) : member.set(obj, value), value);
-var __tabComponent, __tabPanels, __tabTriggers, __currentTab, __indicatorSlide;
+var __defProp = Object.defineProperty;
+var __defNormalProp = (obj, key, value) => key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : obj[key] = value;
+var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 class Tabs {
-  constructor(tabSelector = ".tabs") {
-    __privateAdd(this, __tabComponent);
-    __privateAdd(this, __tabPanels);
-    __privateAdd(this, __tabTriggers);
-    __privateAdd(this, __currentTab);
-    __privateAdd(this, __indicatorSlide);
-    __privateSet(this, __tabComponent, document.querySelector(tabSelector));
+  constructor({ tabSelector, repaintOnresize }) {
+    __publicField(this, "_tabComponent");
+    __publicField(this, "_tabPanels");
+    __publicField(this, "_tabTriggers");
+    __publicField(this, "_currentTab");
+    __publicField(this, "_indicatorSlide");
+    this._tabComponent = document.querySelector(tabSelector || ".tabs");
     this._initTabs();
+    if (repaintOnresize) {
+      this._resizeControl();
+    }
   }
   _initTabs() {
-    __privateSet(this, __tabTriggers, Array.from(__privateGet(this, __tabComponent).querySelectorAll(".tabs-triggers__btn")));
-    __privateSet(this, __tabPanels, Array.from(__privateGet(this, __tabComponent).querySelectorAll(".tabs-content__panel")));
-    __privateSet(this, __indicatorSlide, __privateGet(this, __tabComponent).querySelector(".tabs-indicator__slide"));
-    __privateSet(this, __currentTab, __privateGet(this, __tabTriggers).find((trigger) => trigger.dataset.value === __privateGet(this, __tabComponent).dataset.defaultValue));
-    this._changeActiveTab(__privateGet(this, __currentTab));
-    __privateGet(this, __tabTriggers).forEach((tabTrigger) => {
+    this._tabTriggers = Array.from(this._tabComponent.querySelectorAll(".tabs-triggers__btn"));
+    this._tabPanels = Array.from(this._tabComponent.querySelectorAll(".tabs-content__panel"));
+    this._indicatorSlide = this._tabComponent.querySelector(".tabs-indicator__slide");
+    this._currentTab = this._tabTriggers.find((trigger) => trigger.dataset.value === this._tabComponent.dataset.defaultValue);
+    this._changeActiveTab(this._currentTab);
+    this._tabTriggers.forEach((tabTrigger) => {
       tabTrigger.addEventListener("click", (e) => {
         this._changeActiveTab(e.target);
       });
     });
   }
+  _resizeControl() {
+    window.addEventListener("resize", () => {
+      this._handleIndicator(this._currentTab);
+    });
+  }
   _changeActiveTab(trigger) {
     if (trigger.classList.contains("tabs-triggers__btn--active")) return;
     const value = trigger.dataset.value;
-    const targetTab = __privateGet(this, __tabPanels).find((panel) => panel.dataset.value === value);
-    __privateGet(this, __tabPanels).forEach((panel) => {
+    const targetTab = this._tabPanels.find((panel) => panel.dataset.value === value);
+    this._tabPanels.forEach((panel) => {
       if (panel.classList.contains("tabs-content__panel--active")) {
         panel.classList.remove("tabs-content__panel--active");
       }
     });
-    __privateGet(this, __tabTriggers).forEach((trigger2) => {
+    this._tabTriggers.forEach((trigger2) => {
       if (trigger2.classList.contains("tabs-triggers__btn--active")) {
         trigger2.classList.remove("tabs-triggers__btn--active");
       }
@@ -45,48 +48,84 @@ class Tabs {
     targetTab.classList.add("tabs-content__panel--active");
     trigger.classList.add("tabs-triggers__btn--active");
     this._handleSelectedAccessibility(trigger);
-    __privateSet(this, __currentTab, trigger);
+    this._currentTab = trigger;
     this._handleIndicator(trigger);
   }
   _handleSelectedAccessibility(target) {
-    __privateGet(this, __tabTriggers).forEach((trigger) => {
+    this._tabTriggers.forEach((trigger) => {
       trigger.ariaSelected = false;
     });
     target.ariaSelected = true;
   }
   _handleIndicator(trigger) {
     document.fonts.ready.then(() => {
-      const width = __privateGet(this, __currentTab).offsetWidth;
+      const width = this._currentTab.offsetWidth;
       const left = trigger.offsetLeft;
-      __privateGet(this, __indicatorSlide).style.width = width + "px";
-      __privateGet(this, __indicatorSlide).style.left = left + "px";
+      this._indicatorSlide.style.width = width + "px";
+      this._indicatorSlide.style.left = left + "px";
     });
   }
 }
-__tabComponent = new WeakMap();
-__tabPanels = new WeakMap();
-__tabTriggers = new WeakMap();
-__currentTab = new WeakMap();
-__indicatorSlide = new WeakMap();
+const mobileBtn = document.querySelector(".js-mobile-button");
+const menu = document.querySelector(".js-mobile-menu");
+const header = document.querySelector(".js-header");
+const backplate = document.querySelector(".js-mobile-menu__backplate");
+const mobileMenu = () => {
+  mobileBtn.addEventListener("click", () => {
+    if (!mobileBtn.hasAttribute("data-open")) {
+      openMenu();
+    } else {
+      closeMenu();
+    }
+  });
+};
+const closeMenu = () => {
+  mobileBtn.removeAttribute("data-open");
+  menu.classList.remove("mobile-menu--open");
+  header.classList.remove("header__show");
+  document.body.classList.remove("scroll-lock");
+  mobileBtn.ariaExpanded = false;
+};
+const openMenu = () => {
+  mobileBtn.setAttribute("data-open", "");
+  menu.classList.add("mobile-menu--open");
+  header.classList.add("header__show");
+  document.body.classList.add("scroll-lock");
+  mobileBtn.ariaExpanded = true;
+};
+backplate.addEventListener("click", (e) => {
+  e.stopPropagation();
+  closeMenu();
+});
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
     loop: false,
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 10,
     freeMode: true,
     navigation: {
       nextEl: ".reviews__swiper-next",
       prevEl: ".reviews__swiper-prev"
+    },
+    breakpoints: {
+      767.8: {
+        spaceBetween: 32
+      }
     }
   });
   new Swiper(".promotions__swiper", {
     loop: false,
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 10,
     freeMode: true,
     navigation: {
       nextEl: ".promotions__swiper-next",
       prevEl: ".promotions__swiper-prev"
+    },
+    breakpoints: {
+      767.8: {
+        spaceBetween: 32
+      }
     }
   });
   new Swiper(".card__swiper", {
@@ -100,5 +139,8 @@ window.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {
     // Дополнительные настройки (если нужны)
   });
-  new Tabs();
+  new Tabs({
+    repaintOnresize: true
+  });
+  mobileMenu();
 });
