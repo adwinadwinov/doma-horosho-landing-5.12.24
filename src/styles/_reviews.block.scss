@@ -1,6 +1,16 @@
 .reviews {
   background-color: var(--dh-white);
 
+  @include container-d {
+    overflow-x: hidden;
+  }
+
+  &__swiper {
+    @include container-d {
+      overflow: visible;
+    }
+  }
+
   &__header {
     margin-bottom: 2rem;
   }
@@ -21,6 +31,10 @@
     top: 50%;
     z-index: 5;
     box-shadow: 0 0 1.4rem #00000040;
+
+    @include md-d {
+      display: none;
+    }
   }
 
   &__swiper-prev {
@@ -64,7 +78,7 @@
   &__gradient {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to bottom, transparent, rgba(0, 0, 0, 0.6));
+    background: linear-gradient(to bottom, transparent 75%, rgba(0, 0, 0, 0.6));
   }
 
   &__play {
@@ -75,6 +89,10 @@
   &__hover {
     opacity: 0;
     transition: opacity ease 0.3s;
+
+    @include md-d {
+      opacity: 1;
+    }
   }
 
   &:hover &__hover {
@@ -88,10 +106,20 @@
 
   &__autor {
     transform: translateY(1rem);
+    font-size: 1.4rem;
+
+    @include md-d {
+      transform: translateY(0);
+    }
   }
 
   &__kitchen {
     transform: translateY(1.5rem);
+    font-size: 1.2rem;
+
+    @include md-d {
+      transform: translateY(0);
+    }
   }
 
   &:hover &__autor,

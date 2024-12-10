@@ -5,24 +5,36 @@ window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
     loop: false,
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 10,
     freeMode: true,
 
     navigation: {
       nextEl: ".reviews__swiper-next",
       prevEl: ".reviews__swiper-prev",
     },
+
+    breakpoints: {
+      767.8: {
+        spaceBetween: 32,
+      },
+    },
   });
 
   new Swiper(".promotions__swiper", {
     loop: false,
     slidesPerView: "auto",
-    spaceBetween: 32,
+    spaceBetween: 10,
     freeMode: true,
 
     navigation: {
       nextEl: ".promotions__swiper-next",
       prevEl: ".promotions__swiper-prev",
+    },
+
+    breakpoints: {
+      767.8: {
+        spaceBetween: 32,
+      },
     },
   });
 
