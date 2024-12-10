@@ -1,6 +1,8 @@
 html {
   scroll-behavior: smooth;
   font-size: 62.5%;
+  scrollbar-width: thin;
+  scrollbar-color: var(--dh-green) var(--dh-alabaster);
 }
 
 body {

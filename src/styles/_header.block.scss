@@ -13,8 +13,10 @@
   z-index: 55;
 
   &__show {
-    border-radius: 0;
-    box-shadow: 0 0.4rem 0.8rem #0000000d;
+    @include lg-d {
+      border-radius: 0;
+      box-shadow: 0 0.4rem 0.8rem #0000000d;
+    }
   }
 
   @include md-d {

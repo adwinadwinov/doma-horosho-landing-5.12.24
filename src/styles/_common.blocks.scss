@@ -143,7 +143,9 @@
 }
 
 .scroll-lock {
-  overflow: hidden;
+  @include lg-d {
+    overflow: hidden;
+  }
 }
 
 .link {
