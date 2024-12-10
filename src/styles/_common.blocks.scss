@@ -158,6 +158,14 @@
 .h2 {
   color: var(--dh-jet);
   font-size: 3.8rem;
+
+  @include xl-d {
+    font-size: 3rem;
+  }
+
+  @include sm-d {
+    font-size: 2.6rem;
+  }
 }
 
 .main {

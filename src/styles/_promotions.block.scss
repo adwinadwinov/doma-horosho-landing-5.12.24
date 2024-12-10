@@ -1,9 +1,19 @@
 .promotions {
+  @include container-d {
+    overflow-x: hidden;
+  }
+
   &__header {
     @include flex-row;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 2rem;
+  }
+
+  &__swiper {
+    @include container-d {
+      overflow: visible;
+    }
   }
 
   &__swiper-navigation {
@@ -57,6 +67,16 @@
   @include flex-col;
   justify-content: space-between;
 
+  @include xl-d {
+    height: 32rem;
+    width: 35rem;
+  }
+
+  @include sm-d {
+    width: 32rem;
+    height: 25rem;
+  }
+
   &--primary {
     background-color: var(--dh-orange);
     color: var(--dh-white);
@@ -83,6 +103,14 @@
     text-align: right;
     color: var(--dh-alabaster);
     letter-spacing: -7px;
+
+    @include xl-d {
+      font-size: 6rem;
+    }
+
+    @include sm-d {
+      font-size: 5.6rem;
+    }
   }
 
   &__content {
@@ -94,6 +122,14 @@
     font-size: 2.6rem;
     font-weight: 500;
     width: fit-content;
+
+    @include xl-d {
+      font-size: 2.2rem;
+    }
+
+    @include sm-d {
+      font-size: 2rem;
+    }
   }
 
   &__button {
