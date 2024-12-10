@@ -61,13 +61,24 @@
   &__list {
     display: grid;
     column-gap: 3.2rem;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, 1fr);
+
+    @include md-d {
+      grid-template-columns: 1fr 1fr;
+      row-gap: 2rem;
+    }
   }
 
   &__item {
     display: flex;
     flex-direction: column;
     gap: 1rem;
+
+    @include md-d {
+      &:last-child {
+        grid-column: 1 / -1;
+      }
+    }
   }
 
   &__text {
@@ -96,9 +107,23 @@
   border-radius: 2rem;
   color: var(--dh-green);
 
+  @include sm-d {
+    padding: 1.2rem 2rem;
+  }
+
   &__title {
     font-size: 3.8rem;
     color: var(--dh-green);
+
+    @include lg-d {
+      font-size: 3rem;
+    }
+  }
+
+  &__text {
+    @include sm-d {
+      line-height: 2.5rem;
+    }
   }
 }
 

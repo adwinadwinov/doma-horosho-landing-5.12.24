@@ -1,7 +1,14 @@
 .hero {
   display: flex;
   flex-direction: row;
-  height: 48.2rem;
+
+  @include lg-d {
+    flex-direction: column;
+  }
+
+  @include xl-d {
+    height: auto;
+  }
 }
 
 .hero-intro,
@@ -12,6 +19,10 @@
   border-radius: var(--dh-border-radius);
   position: relative;
   overflow: hidden;
+
+  @include lg-d {
+    width: 100%;
+  }
 }
 
 .hero-intro {
@@ -19,6 +30,16 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
+  gap: 3.2rem;
+
+  @include xl-d {
+    gap: 2rem;
+    padding: 7.2rem var(--dh-conteiner-padding);
+  }
+
+  @include sm-d {
+    padding: 2rem var(--dh-conteiner-padding);
+  }
 
   &__header {
     font-size: 5rem;
@@ -26,6 +47,16 @@
     font-weight: 500;
     color: var(--dh-jet);
     letter-spacing: 0.5px;
+
+    @include xl-d {
+      font-size: 4rem;
+      line-height: 1;
+      letter-spacing: 0;
+    }
+
+    @include sm-d {
+      font-size: 3rem;
+    }
   }
 
   &__advantages,
@@ -47,10 +78,22 @@
     height: 6.2rem;
     padding: 2.2rem 2rem;
     letter-spacing: 0.1px;
+
+    @include sm-d {
+      width: 100%;
+    }
   }
 }
 
 .hero-preview {
+  @include lg-d {
+    max-height: 35rem;
+  }
+
+  @include md-d {
+    max-height: 25rem;
+  }
+
   &__img {
     object-fit: cover;
     width: 100%;

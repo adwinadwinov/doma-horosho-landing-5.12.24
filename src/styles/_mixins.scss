@@ -1,3 +1,5 @@
+@use "sass:map";
+
 @mixin flex-row-between-center {
   display: flex;
   flex-direction: row;
@@ -21,5 +23,40 @@
   justify-content: center;
 }
 
-@mixin section-padding-y {
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px,
+  xl: 1200px,
+  xxl: 1440px,
+);
+
+@mixin sm-d {
+  @media (max-width: calc(map.get($breakpoints, sm) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin md-d {
+  @media (max-width: calc(map.get($breakpoints, md) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin lg-d {
+  @media (max-width: calc(map.get($breakpoints, lg) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin xl-d {
+  @media (max-width: calc(map.get($breakpoints, xl) - 0.02px)) {
+    @content;
+  }
+}
+
+@mixin xxl-d {
+  @media (max-width: calc(map.get($breakpoints, xxl) - 0.02px)) {
+    @content;
+  }
 }

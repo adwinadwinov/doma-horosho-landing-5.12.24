@@ -2,8 +2,8 @@
 
 @use "./reset";
 @use "./variables" as *;
-@use "./base";
 @use "./mixins" as *;
+@import "./base";
 @import "./swiper";
 @import "./fonts";
 
