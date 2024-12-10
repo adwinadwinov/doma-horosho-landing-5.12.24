@@ -32,6 +32,12 @@ $breakpoints: (
   container: 1366px,
 );
 
+@mixin lg-min-d {
+  @media (min-width: calc(map.get($breakpoints, lg))) {
+    @content;
+  }
+}
+
 @mixin sm-d {
   @media (max-width: calc(map.get($breakpoints, sm) - 0.02px)) {
     @content;

@@ -6,6 +6,16 @@
   height: 7rem;
   width: 100%;
   flex-shrink: 0;
+  transition:
+    box-shadow ease 0.3s,
+    border-radius ease 0.3s;
+  position: relative;
+  z-index: 55;
+
+  &__show {
+    border-radius: 0;
+    box-shadow: 0 0.4rem 0.8rem #0000000d;
+  }
 
   @include md-d {
     height: 6rem;
@@ -21,7 +31,7 @@
     margin-right: 2rem;
 
     @include lg-d {
-      display: inline-flex;
+      display: block;
     }
   }
 

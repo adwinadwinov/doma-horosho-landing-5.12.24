@@ -68,6 +68,7 @@
 
   &__link {
     color: var(--dh-jet);
+    font-weight: 500;
   }
 }
 
@@ -139,6 +140,10 @@
       line-height: 2.5rem;
     }
   }
+}
+
+.scroll-lock {
+  overflow: hidden;
 }
 
 .link {
@@ -440,19 +445,70 @@
   }
 }
 
+$bar-width: 2.4rem;
+$bar-height: 1px;
+$bar-spacing: 1rem;
+$animation-fun: cubic-bezier(0.23, 1, 0.32, 1);
+
 .mobile-button {
-  padding: 0.6rem 0.4rem;
-  display: none;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  width: 3.4rem;
-  height: 3.4rem;
+  width: $bar-width;
+  height: calc($bar-height + $bar-spacing * 2);
+  cursor: pointer;
+
+  &__span,
+  &__span:after,
+  &__span:before {
+    width: $bar-width;
+    height: $bar-height;
+    display: block;
+    background: var(--dh-green);
+  }
+
+  &[data-open] &__span {
+    background: rgba(255, 255, 255, 0);
+  }
 
   &__span {
-    height: 1px;
-    width: 100%;
-    background-color: var(--dh-green);
-    gap: 0.4rem;
+    display: block;
+    position: relative;
+    transform: translateY($bar-spacing);
+    transition: all 0ms 300ms;
+    transform: translateY(-50%);
+  }
+
+  &__span:before {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: $bar-spacing;
+    transition:
+      bottom 300ms 300ms $animation-fun,
+      transform 300ms $animation-fun;
+  }
+
+  &__span:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: $bar-spacing;
+    transition:
+      top 300ms 300ms $animation-fun,
+      transform 300ms $animation-fun;
+  }
+
+  &[data-open] &__span:after {
+    top: 0;
+    transform: rotate(45deg);
+    transition:
+      top 300ms $animation-fun,
+      transform 300ms 300ms $animation-fun;
+  }
+
+  &[data-open] &__span:before {
+    bottom: 0;
+    transform: rotate(-45deg);
+    transition:
+      bottom 300ms $animation-fun,
+      transform 300ms 300ms $animation-fun;
   }
 }

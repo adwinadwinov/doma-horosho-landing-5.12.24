@@ -1,5 +1,6 @@
 import "./styles/main.scss";
 import { Tabs } from "./tabs";
+import { mobileMenu } from "./mobile-menu";
 
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -55,4 +56,6 @@ window.addEventListener("DOMContentLoaded", () => {
   new Tabs({
     repaintOnresize: true,
   });
+
+  mobileMenu();
 });

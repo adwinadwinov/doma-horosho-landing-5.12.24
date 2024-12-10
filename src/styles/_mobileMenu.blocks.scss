@@ -1,0 +1,77 @@
+.mobile-menu {
+  position: fixed;
+  width: 100%;
+  left: 0;
+  z-index: 50;
+  @include flex-col;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity ease 0.3s,
+    visibility ease 0.3s;
+  display: block;
+
+  @include lg-min-d {
+    display: none;
+  }
+
+  &--open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__inner {
+    padding-top: 11rem;
+    position: relative;
+    z-index: 55;
+    background-color: var(--dh-white);
+    @include flex-col;
+    padding-bottom: 2rem;
+    border-radius: 0 0 2rem 2rem;
+
+    @include md-d {
+      padding-top: 10rem;
+    }
+  }
+
+  &__backplate {
+    position: absolute;
+    inset: 0;
+    background-color: black;
+    opacity: 0.65;
+    z-index: 40;
+  }
+
+  &__link {
+    font-size: 2rem;
+  }
+
+  &__nav {
+    display: block;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__nav-list {
+    flex-direction: column;
+    gap: 2.8rem;
+  }
+
+  &__contacts {
+    @include flex-col;
+    align-items: start;
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+
+  &__divider {
+    background-color: var(--dh-grey);
+    margin-top: 2.8rem;
+    margin-bottom: 4rem;
+  }
+
+  &__nav-link {
+    font-size: 1.8rem;
+  }
+}
