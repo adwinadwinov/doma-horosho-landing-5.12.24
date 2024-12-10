@@ -7,15 +7,43 @@
   width: 100%;
   flex-shrink: 0;
 
+  @include md-d {
+    height: 6rem;
+  }
+
+  &__left {
+    @include flex-row;
+    align-items: center;
+  }
+
+  &__mobile-button {
+    display: none;
+    margin-right: 2rem;
+
+    @include lg-d {
+      display: inline-flex;
+    }
+  }
+
   &__contacts {
     display: flex;
     flex-direction: row;
     align-items: center;
     gap: 2rem;
     flex-shrink: 0;
+
+    @include lg-d {
+      display: none;
+    }
   }
 
   &__logo {
     flex-shrink: 0;
+  }
+
+  &__img {
+    @include xl-d {
+      height: 3.1rem;
+    }
   }
 }

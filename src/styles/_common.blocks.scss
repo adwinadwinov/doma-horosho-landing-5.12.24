@@ -56,6 +56,10 @@
   justify-content: center;
   margin-right: 2rem;
 
+  @include lg-d {
+    display: none;
+  }
+
   &__list {
     display: flex;
     flex-direction: row;
@@ -419,5 +423,36 @@
   &__divider {
     background-color: var(--dh-grey);
     margin-top: 1.2rem;
+  }
+}
+
+.mobile-contacts {
+  display: none;
+  flex-direction: row;
+
+  @include lg-d {
+    display: flex;
+  }
+
+  &__img {
+    width: 4.6rem;
+    aspect-ratio: 1 / 1;
+  }
+}
+
+.mobile-button {
+  padding: 0.6rem 0.4rem;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+  width: 3.4rem;
+  height: 3.4rem;
+
+  &__span {
+    height: 1px;
+    width: 100%;
+    background-color: var(--dh-green);
+    gap: 0.4rem;
   }
 }
