@@ -30,6 +30,16 @@
 .logo-list {
   @include flex-row;
   gap: 2rem;
+  flex-wrap: wrap;
+
+  @include xl-d {
+    gap: 0.3rem;
+  }
+
+  @include md-d {
+    gap: 2rem;
+    justify-content: space-between;
+  }
 
   &__item {
     border-radius: 2rem;
