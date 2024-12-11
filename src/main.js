@@ -1,6 +1,7 @@
 import "./styles/main.scss";
 import { Tabs } from "./tabs";
 import { mobileMenu } from "./mobile-menu";
+import { videoPopups } from "./videoPopups";
 
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -49,13 +50,12 @@ window.addEventListener("DOMContentLoaded", () => {
     },
   });
 
-  Fancybox.bind("[data-fancybox]", {
-    // Дополнительные настройки (если нужны)
-  });
+  Fancybox.bind("[data-fancybox]");
 
   new Tabs({
     repaintOnresize: true,
   });
 
   mobileMenu();
+  videoPopups();
 });
