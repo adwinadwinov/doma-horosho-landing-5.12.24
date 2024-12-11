@@ -97,6 +97,17 @@ backplate.addEventListener("click", (e) => {
   e.stopPropagation();
   closeMenu();
 });
+const videoPopups = () => {
+  const video = document.querySelector("video");
+  const triggers = document.querySelectorAll("[data-fancybox]");
+  triggers.forEach((trigger) => {
+    trigger.addEventListener("click", () => {
+      const videoSrc = trigger.dataset.videoSrc;
+      video.src = videoSrc;
+      video.play();
+    });
+  });
+};
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
     loop: false,
@@ -136,11 +147,10 @@ window.addEventListener("DOMContentLoaded", () => {
       prevEl: ".card__swiper-prev"
     }
   });
-  Fancybox.bind("[data-fancybox]", {
-    // Дополнительные настройки (если нужны)
-  });
+  Fancybox.bind("[data-fancybox]");
   new Tabs({
     repaintOnresize: true
   });
   mobileMenu();
+  videoPopups();
 });
