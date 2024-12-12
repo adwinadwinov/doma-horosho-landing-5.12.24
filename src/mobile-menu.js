@@ -3,7 +3,7 @@ const menu = document.querySelector(".js-mobile-menu");
 const header = document.querySelector(".js-header");
 const backplate = document.querySelector(".js-mobile-menu__backplate");
 
-export const mobileMenu = () => {
+export const initMobileMenu = () => {
   mobileBtn.addEventListener("click", () => {
     if (!mobileBtn.hasAttribute("data-open")) {
       openMenu();

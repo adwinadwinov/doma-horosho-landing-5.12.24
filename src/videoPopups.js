@@ -1,4 +1,4 @@
-export const videoPopups = () => {
+export const initVideoPopups = () => {
   const video = document.querySelector("video");
   const triggers = document.querySelectorAll("[data-fancybox]");
   triggers.forEach((trigger) => {

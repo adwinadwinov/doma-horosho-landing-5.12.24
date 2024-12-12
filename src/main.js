@@ -1,7 +1,7 @@
 import "./styles/main.scss";
 import { Tabs } from "./tabs";
-import { mobileMenu } from "./mobile-menu";
-import { videoPopups } from "./videoPopups";
+import { initMobileMenu } from "./mobile-menu";
+import { initVideoPopups } from "./videoPopups";
 import { initPopups } from "./popups";
 import { initScroll } from "./scroll";
 
@@ -64,8 +64,8 @@ window.addEventListener("DOMContentLoaded", () => {
     repaintOnresize: true,
   });
 
-  mobileMenu();
-  videoPopups();
+  initMobileMenu();
+  initVideoPopups();
   initPopups();
   initScroll();
 });

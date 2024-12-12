@@ -25,9 +25,10 @@ const openPopup = (e) => {
 
   document.body.style.overflow = "hidden";
   document.body.setAttribute("data-popup", target.dataset.popup);
-  Motion.animate(container, { display: "flex" });
-  Motion.animate(popupBg, { opacity: [0, 1], display: "flex" }, { duration: 0.3 });
-  Motion.animate(target, { display: "felx", translateY: [20, 0] }, { duration: 0.3, easing: "spring" });
+  container.style.display = "flex";
+  popupBg.classList.add("popups-bg--show");
+  container.classList.add("popups-container--show");
+  target.classList.add("popup--show");
 };
 
 const closePopup = (e) => {
@@ -38,7 +39,8 @@ const closePopup = (e) => {
 
   document.body.style.overflow = "visible";
   document.body.removeAttribute("data-popup");
-  Motion.animate(container, { display: "none" });
-  Motion.animate(popupBg, { opacity: [1, 0] }, { delay: 0.2, duration: 0.3 });
-  Motion.animate(target, { translateY: [0, 20] }, { duration: 0.3, easing: "spring" });
+  container.style.display = "none";
+  popupBg.classList.remove("popups-bg--show");
+  container.classList.remove("popups-container--show");
+  popup.classList.remove("popup--show");
 };

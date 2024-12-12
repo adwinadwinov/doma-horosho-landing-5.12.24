@@ -27,7 +27,15 @@
   inset: 0;
   @include flex-center;
   z-index: 90;
+  transition: opacity ease 0.3s;
+  opacity: 0;
+  visibility: hidden;
   pointer-events: none;
+
+  &--show {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 .popups-container {
@@ -35,10 +43,11 @@
   inset: 0;
   @include flex-center;
   z-index: 100;
-}
+  pointer-events: none;
 
-.display--none {
-  display: none;
+  &--show {
+    pointer-events: all;
+  }
 }
 
 .popup {
@@ -48,6 +57,12 @@
   @include flex-col;
   max-width: 35.5rem;
   position: relative;
+  display: none;
+  animation: 0.3s ease 1 popup-show;
+
+  &--show {
+    display: flex;
+  }
 
   &__close {
     width: 2.6rem;
@@ -153,4 +168,13 @@
 
 .success-popup {
   gap: 2rem;
+}
+
+@keyframes popup-show {
+  from {
+    transform: translateY(2rem);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
