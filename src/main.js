@@ -4,6 +4,7 @@ import { initMobileMenu } from "./mobile-menu";
 import { initVideoPopups } from "./videoPopups";
 import { initPopups } from "./popups";
 import { initScroll } from "./scroll";
+import { initNav } from "./initNav";
 
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -68,4 +69,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initVideoPopups();
   initPopups();
   initScroll();
+  initNav();
 });

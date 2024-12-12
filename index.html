@@ -50,16 +50,16 @@
         <nav class="nav">
           <ul class="nav__list">
             <li class="nav__item">
-              <a href="#" class="nav__link">Кухни</a>
+              <a href="#catalog" class="nav__link" data-catalog="kitchens">Кухни</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link">Шкафы</a>
+              <a href="#catalog" class="nav__link" data-catalog="wardrobes">Шкафы</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link">О нас</a>
+              <a href="#promotions" class="nav__link">Акции</a>
             </li>
             <li class="nav__item">
-              <a href="#" class="nav__link">Акции</a>
+              <a href="#about" class="nav__link">О нас</a>
             </li>
           </ul>
         </nav>
@@ -73,10 +73,10 @@
             </svg>
             +7 (812) 250-59-94
           </a>
-          <a class="button" role="button">Связаться в WhatsApp</a>
+          <a href="https://wa.me/78122505994" class="button" role="button" target="_blank">Связаться в WhatsApp</a>
         </div>
         <div class="mobile-contacts">
-          <a class="mobile-contacts__ws" href=" https://wa.me/78122505994">
+          <a class="mobile-contacts__ws" href="https://wa.me/78122505994">
             <img class="mobile-contacts__img" src="/images/ws.svg" alt="WhatsApp" />
           </a>
           <a class="mobile-contacts__phone" href="tel:78122505994">
@@ -168,7 +168,7 @@
         </section>
 
         <!-- ---------- CATALOG ---------- -->
-        <section class="catalog section">
+        <section class="catalog section" id="catalog">
           <div class="tabs" data-default-value="kitchens" role="tabpanel">
             <div class="tabs-triggers catalog__tabs-triggers" role="tablist" aria-orientation="horizontal">
               <button
@@ -850,7 +850,7 @@
         </section>
 
         <!-- ---------- PROMOTIONS ---------- -->
-        <section class="promotions section">
+        <section class="promotions section" id="promotions">
           <div class="promotions__header">
             <h2 class="promotions__title h2">Акции</h2>
             <div class="swiper-navigation promotions__swiper-navigation">
@@ -1141,7 +1141,7 @@
         </script> -->
 
         <!-- ---------- ABOUT ---------- -->
-        <section class="about section">
+        <section class="about section" id="about">
           <div class="about__header">
             <h2 class="about__title h2">О нас</h2>
           </div>
@@ -1231,7 +1231,7 @@
               </a>
               <p class="phone__sub">ежедневно с 10 до 22</p>
             </div>
-            <a class="button button--orange footer-right__button" href="#">Связаться в WhatsApp</a>
+            <a class="button button--orange footer-right__button" href="https://wa.me/78122505994" target="_blank">Связаться в WhatsApp</a>
             <ul class="socials">
               <li class="socials__item">
                 <a class="socials__link" href="" target="_blank">
