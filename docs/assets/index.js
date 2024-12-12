@@ -70,7 +70,7 @@ const mobileBtn = document.querySelector(".js-mobile-button");
 const menu = document.querySelector(".js-mobile-menu");
 const header = document.querySelector(".js-header");
 const backplate = document.querySelector(".js-mobile-menu__backplate");
-const mobileMenu = () => {
+const initMobileMenu = () => {
   mobileBtn.addEventListener("click", () => {
     if (!mobileBtn.hasAttribute("data-open")) {
       openMenu();
@@ -97,16 +97,83 @@ backplate.addEventListener("click", (e) => {
   e.stopPropagation();
   closeMenu();
 });
-const videoPopups = () => {
+const initVideoPopups = () => {
   const video = document.querySelector("video");
-  const triggers = document.querySelectorAll("[data-fancybox]");
-  triggers.forEach((trigger) => {
+  const triggers2 = document.querySelectorAll("[data-fancybox]");
+  triggers2.forEach((trigger) => {
     trigger.addEventListener("click", () => {
       const videoSrc = trigger.dataset.videoSrc;
       video.src = videoSrc;
       video.play();
     });
   });
+};
+const triggers = document.querySelectorAll("[data-trigger]");
+const container = document.querySelector(".popups-container");
+const popups = Array.from(container.querySelectorAll("[data-popup]"));
+const popupBg = document.querySelector(".popups-bg");
+const initPopups = () => {
+  triggers.forEach((trigger) => trigger.addEventListener("click", openPopup));
+  container.addEventListener("click", (e) => {
+    if (e.target.classList.contains("close-btn") || e.target === container) {
+      closePopup(e);
+    }
+  });
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && document.body.hasAttribute("data-popup")) {
+      closePopup(e);
+    }
+  });
+};
+const openPopup = (e) => {
+  e.preventDefault();
+  const target = popups.find((popup2) => popup2.dataset.popup === e.target.dataset.trigger);
+  if (!target) throw new Error("!попап не найден");
+  document.body.style.overflow = "hidden";
+  document.body.setAttribute("data-popup", target.dataset.popup);
+  container.style.display = "flex";
+  popupBg.classList.add("popups-bg--show");
+  container.classList.add("popups-container--show");
+  target.classList.add("popup--show");
+};
+const closePopup = (e) => {
+  e.preventDefault();
+  const target = popups.find((popup2) => popup2.dataset.popup === document.body.dataset.popup);
+  if (!target) throw new Error("!попап не найден");
+  document.body.style.overflow = "visible";
+  document.body.removeAttribute("data-popup");
+  container.style.display = "none";
+  popupBg.classList.remove("popups-bg--show");
+  container.classList.remove("popups-container--show");
+  popup.classList.remove("popup--show");
+};
+const initScroll = () => {
+  const header2 = document.querySelector(".header");
+  Motion.scroll((_, info) => {
+    const diff = info.y.velocity;
+    const currentScroll = info.y.current;
+    if (currentScroll > 80 && !header2.classList.contains("header--shadow")) {
+      header2.classList.add("header--shadow");
+    }
+    if (currentScroll <= 80) {
+      header2.classList.remove("header--shadow");
+    }
+    if (diff > 0 && info.y.current > 80 && !header2.classList.contains("header--scroll-hidden")) {
+      header2.classList.add("header--scroll-hidden");
+    }
+    if (diff < 0) {
+      header2.classList.remove("header--scroll-hidden");
+    }
+  });
+};
+const initNav = () => {
+  const navLinks = document.querySelectorAll("[data-catalog]");
+  navLinks.forEach(
+    (link) => link.addEventListener("click", (e) => {
+      const catalogBtn = document.querySelector(`[data-value=${e.target.dataset.catalog}]`);
+      catalogBtn.click();
+    })
+  );
 };
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -157,6 +224,9 @@ window.addEventListener("DOMContentLoaded", () => {
   new Tabs({
     repaintOnresize: true
   });
-  mobileMenu();
-  videoPopups();
+  initMobileMenu();
+  initVideoPopups();
+  initPopups();
+  initScroll();
+  initNav();
 });
