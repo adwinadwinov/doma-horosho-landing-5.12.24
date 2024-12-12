@@ -11,6 +11,12 @@ export const initMobileMenu = () => {
       closeMenu();
     }
   });
+  menu.addEventListener("click", (e) => {
+    console.log(e.target);
+    if (e.target.classList.contains("mobile-menu__nav-link")) {
+      closeMenu();
+    }
+  });
 };
 
 const closeMenu = () => {

@@ -4,16 +4,16 @@
         <nav class="nav mobile-menu__nav">
             <ul class="nav__list mobile-menu__nav-list">
                 <li class="nav__item">
-                    <a href="#" class="nav__link mobile-menu__nav-link">Кухни</a>
+                    <a href="#catalog" class="nav__link mobile-menu__nav-link" data-catalog="kitchens">Кухни</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link mobile-menu__nav-link">Шкафы</a>
+                    <a href="#catalog" class="nav__link mobile-menu__nav-link" data-catalog="wardrobes">Шкафы</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link mobile-menu__nav-link">О нас</a>
+                    <a href="#promotions" class="nav__link mobile-menu__nav-link">Акции</a>
                 </li>
                 <li class="nav__item">
-                    <a href="#" class="nav__link mobile-menu__nav-link">Акции</a>
+                    <a href="#about" class="nav__link mobile-menu__nav-link">О нас</a>
                 </li>
             </ul>
         </nav>

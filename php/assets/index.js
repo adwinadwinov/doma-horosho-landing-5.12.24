@@ -1,14 +1,10 @@
-var __defProp = Object.defineProperty;
-var __defNormalProp = (obj, key, value) =>
-  key in obj ? __defProp(obj, key, { enumerable: true, configurable: true, writable: true, value }) : (obj[key] = value);
-var __publicField = (obj, key, value) => __defNormalProp(obj, typeof key !== "symbol" ? key + "" : key, value);
 class Tabs {
+  _tabComponent;
+  _tabPanels;
+  _tabTriggers;
+  _currentTab;
+  _indicatorSlide;
   constructor({ tabSelector, repaintOnresize }) {
-    __publicField(this, "_tabComponent");
-    __publicField(this, "_tabPanels");
-    __publicField(this, "_tabTriggers");
-    __publicField(this, "_currentTab");
-    __publicField(this, "_indicatorSlide");
     this._tabComponent = document.querySelector(tabSelector || ".tabs");
     this._initTabs();
     if (repaintOnresize) {
@@ -21,6 +17,7 @@ class Tabs {
     this._indicatorSlide = this._tabComponent.querySelector(".tabs-indicator__slide");
     this._currentTab = this._tabTriggers.find((trigger) => trigger.dataset.value === this._tabComponent.dataset.defaultValue);
     this._changeActiveTab(this._currentTab);
+
     this._tabTriggers.forEach((tabTrigger) => {
       tabTrigger.addEventListener("click", (e) => {
         this._changeActiveTab(e.target);
@@ -78,6 +75,11 @@ const initMobileMenu = () => {
     } else {
       closeMenu();
     }
+    menu.addEventListener("click", (e) => {
+      if (e.target.classList.contains("mobile-menu__nav-link")) {
+        closeMenu();
+      }
+    });
   });
 };
 const closeMenu = () => {
