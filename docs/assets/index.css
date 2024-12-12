@@ -258,6 +258,14 @@ body {
     row-gap: 2rem;
   }
 }
+.advantages__break {
+  display: none;
+}
+@media (max-width: 1199.98px) {
+  .advantages__break {
+    display: inline;
+  }
+}
 .advantages__item {
   display: flex;
   flex-direction: column;
@@ -403,6 +411,7 @@ body {
   background-color: var(--dh-white);
   border: 1px solid var(--dh-grey);
   position: relative;
+  box-shadow: 0 0.6rem 1.2rem rgba(0, 0, 0, 0.031372549);
 }
 @media (max-width: 575.98px) {
   .card {
@@ -556,7 +565,7 @@ body {
 .card-disc {
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  gap: 1rem;
   padding-bottom: 1.2rem;
 }
 .card-disc__item {
@@ -575,6 +584,7 @@ body {
 .card-disc__divider {
   background-color: var(--dh-grey);
   margin-top: 1.2rem;
+  margin-bottom: 0.4rem;
 }
 .mobile-contacts {
   display: none;
@@ -800,6 +810,13 @@ body {
   bottom: 3.2rem;
   left: 3.8rem;
   position: absolute;
+}
+@media (max-width: 767.98px) {
+  .hero-preview__badge {
+    left: auto;
+    right: 2rem;
+    bottom: 2rem;
+  }
 }
 .catalog {
   background-color: var(--dh-white);
@@ -1251,7 +1268,7 @@ body {
 .about-card {
   display: flex;
   flex-direction: column;
-  padding: 3rem 4rem;
+  padding: 2.7rem 3.7rem;
   justify-content: space-between;
 }
 @media (max-width: 767.98px) {
@@ -1391,8 +1408,10 @@ body {
     width: 100%;
   }
 }
-.footer-right__phone {
-  align-items: start !important;
+@media (max-width: 575.98px) {
+  .footer-right__phone {
+    align-items: start !important;
+  }
 }
 .adress {
   display: flex;

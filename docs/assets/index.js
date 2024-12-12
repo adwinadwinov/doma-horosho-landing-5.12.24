@@ -113,7 +113,10 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: false,
     slidesPerView: "auto",
     spaceBetween: 10,
-    freeMode: true,
+    freeMode: {
+      enabled: true,
+      sticky: true
+    },
     navigation: {
       nextEl: ".reviews__swiper-next",
       prevEl: ".reviews__swiper-prev"
@@ -128,7 +131,10 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: false,
     slidesPerView: "auto",
     spaceBetween: 10,
-    freeMode: true,
+    freeMode: {
+      enabled: true,
+      sticky: true
+    },
     navigation: {
       nextEl: ".promotions__swiper-next",
       prevEl: ".promotions__swiper-prev"
