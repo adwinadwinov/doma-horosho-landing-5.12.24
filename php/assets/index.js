@@ -146,7 +146,7 @@ const closePopup = (e) => {
   container.style.display = "none";
   popupBg.classList.remove("popups-bg--show");
   container.classList.remove("popups-container--show");
-  popup.classList.remove("popup--show");
+  target.classList.remove("popup--show");
 };
 const initScroll = () => {
   const header2 = document.querySelector(".header");
