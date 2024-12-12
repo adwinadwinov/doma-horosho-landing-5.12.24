@@ -1,0 +1,136 @@
+.close-btn {
+  padding: 0.6rem;
+  position: absolute;
+
+  &::after,
+  &::before {
+    content: "";
+    position: absolute;
+    width: 1.9rem;
+    height: 0.1rem;
+    background-color: #1f2937;
+    right: 0.35rem;
+  }
+
+  &::after {
+    transform: rotate(45deg);
+  }
+
+  &::before {
+    transform: rotate(-45deg);
+  }
+}
+
+.popup {
+  background-color: var(--dh-white);
+  border-radius: 0.4rem;
+  padding: 3.6rem 2rem;
+  @include flex-col;
+  max-width: 35.5rem;
+  position: relative;
+
+  &__close {
+    width: 2.6rem;
+    height: 2.6rem;
+    top: 1rem;
+    right: 1rem;
+  }
+
+  &__text {
+    color: var(--dh-dark-grey);
+    font-size: 1.4rem;
+  }
+
+  &__title {
+    font-size: 2.2rem;
+    color: var(--dh-jet);
+    font-weight: 500;
+  }
+
+  &__sub-title {
+    font-size: 1.8rem;
+    color: var(--dh-jet);
+  }
+
+  &__button {
+    height: 6.2rem;
+  }
+}
+
+.calc-popup {
+  &__form {
+    @include flex-col;
+    gap: 2rem;
+    margin-top: 2rem;
+  }
+
+  &__inputs {
+    @include flex-col;
+    gap: 1.6rem;
+  }
+
+  &__cbs {
+    @include flex-col;
+    gap: 0.8rem;
+  }
+
+  &__input {
+    background-color: var(--dh-white);
+    border: 1px solid var(--dh-grey);
+    color: var(--dh-dark-grey);
+    border-radius: 0.4rem;
+    padding: 1.6rem 1.4rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    transition: box-shadow ease 0.3s;
+    height: 4.6rem;
+
+    &:focus {
+      box-shadow:
+        0 0 0.3rem 0.1rem var(--dh-alabaster),
+        0 0 0 0.1rem var(--dh-green);
+    }
+  }
+
+  &__sub {
+    font-size: 1rem;
+    color: var(--dh-dark-grey);
+    text-align: left;
+    margin-top: 0.4rem;
+  }
+}
+
+.callback-kind {
+  @include flex-row;
+  justify-content: space-between;
+
+  &__text {
+    font-size: 1.2rem;
+    color: var(--dh-jet);
+  }
+
+  &__btn {
+    padding: 1.2rem;
+    border-radius: 0.4rem;
+    @include flex-col;
+    gap: 0.4rem;
+    align-items: start;
+    background-color: var(--dh-alabaster);
+    transition: border-color ease 0.3s;
+    border: 2px solid transparent;
+
+    &--active {
+      border-color: var(--dh-green);
+    }
+  }
+
+  &__img {
+    fill: var(--dh-green);
+    width: 2.4rem;
+    height: 2.4rem;
+  }
+}
+
+.success-popup {
+  gap: 2rem;
+}
