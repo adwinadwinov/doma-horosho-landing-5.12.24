@@ -36,7 +36,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Бесплатная доставка</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -50,7 +50,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Скидка новоселам 10%</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -64,7 +64,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Напиши отзыв и получи 3 000 ₽</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -78,7 +78,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Скидка пенсионерам 10%</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -92,7 +92,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Скидка молодым семьям 10%</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -106,7 +106,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Бесплатный дизайн-проект</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
@@ -120,7 +120,7 @@
                 </div>
                 <div class="promotion-card__content">
                     <p class="promotion-card__text">Приведи друга и получи 10 000 ₽</p>
-                    <button class="button promotion-card__button">
+                    <button class="button promotion-card__button" data-trigger="popup-request">
                         Оставить заявку
                         <svg width="14" height="15" viewBox="0 0 14 15" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path d="M5.25 10.9614L8.75 7.46143L5.25 3.96143" stroke="#768A71" stroke-linecap="round" stroke-linejoin="round" />
