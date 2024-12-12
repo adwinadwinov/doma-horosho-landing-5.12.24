@@ -21,6 +21,7 @@ error_reporting(E_ALL);
             <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/catalog.php'; ?>
             <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/promotions.php'; ?>
             <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/reviews.php'; ?>
+            <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/quiz.php'; ?>
             <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/about.php'; ?>
             <? include_once $_SERVER['DOCUMENT_ROOT'] . '/components/footer.php'; ?>
         </main>
