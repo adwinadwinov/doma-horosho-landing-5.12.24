@@ -8,9 +8,21 @@
   flex-shrink: 0;
   transition:
     box-shadow ease 0.3s,
-    border-radius ease 0.3s;
-  position: relative;
+    border-radius ease 0.3s,
+    transform ease 0.3s;
+  position: fixed;
+  max-width: 136.6rem;
+  width: 100%;
+  margin: 0 auto;
   z-index: 55;
+
+  &--shadow {
+    box-shadow: 0 0.4rem 0.8rem #0000000d;
+  }
+
+  &--scroll-hidden {
+    transform: translateY(-100%);
+  }
 
   &__show {
     @include lg-d {

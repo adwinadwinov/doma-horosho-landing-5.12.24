@@ -7,7 +7,6 @@ html {
 
 body {
   background-color: var(--dh-alabaster);
-  height: 7rem;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -37,4 +36,12 @@ body {
   display: flex;
   flex-direction: column;
   gap: var(--dh-sections-gap);
+}
+
+.main {
+  padding-top: calc(7rem + var(--dh-sections-gap));
+
+  @include md-d {
+    padding-top: calc(6rem + var(--dh-sections-gap));
+  }
 }

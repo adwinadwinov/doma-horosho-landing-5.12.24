@@ -21,6 +21,26 @@
   }
 }
 
+.popups-bg {
+  background-color: rgba(black, 0.5);
+  position: fixed;
+  inset: 0;
+  @include flex-center;
+  z-index: 90;
+  pointer-events: none;
+}
+
+.popups-container {
+  position: fixed;
+  inset: 0;
+  @include flex-center;
+  z-index: 100;
+}
+
+.display--none {
+  display: none;
+}
+
 .popup {
   background-color: var(--dh-white);
   border-radius: 0.4rem;

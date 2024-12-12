@@ -2,6 +2,8 @@ import "./styles/main.scss";
 import { Tabs } from "./tabs";
 import { mobileMenu } from "./mobile-menu";
 import { videoPopups } from "./videoPopups";
+import { initPopups } from "./popups";
+import { initScroll } from "./scroll";
 
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
@@ -64,4 +66,6 @@ window.addEventListener("DOMContentLoaded", () => {
 
   mobileMenu();
   videoPopups();
+  initPopups();
+  initScroll();
 });
