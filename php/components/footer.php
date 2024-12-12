@@ -8,9 +8,9 @@
     <div class="footer__top">
         <div class="footer-left">
             <div class="footer-left__info">
-                <img class="footer-left__logo" src="/images/logo-white.svg" alt="Логотип" />
+                <img class="footer-left__logo" src="/assets/images/logo-white.svg" alt="Логотип" />
                 <div class="footer-left__adress adress">
-                    <img class="adress__img" src="/images/adress.svg" alt="Адрес" />Санкт-Петербург,<br />Среднеохтинский просп., 23, корп. 2,
+                    <img class="adress__img" src="/assets/images/adress.svg" alt="Адрес" />Санкт-Петербург,<br />Среднеохтинский просп., 23, корп. 2,
                     этаж 1, офис 6
                 </div>
             </div>
@@ -28,7 +28,7 @@
                 </a>
                 <p class="phone__sub">ежедневно с 10 до 22</p>
             </div>
-            <a class="button button--orange footer-right__button" href="#">Связаться в WhatsApp</a>
+            <a class="button button--orange footer-right__button" href="https://wa.me/78122505994" target="_blank">Связаться в WhatsApp</a>
             <ul class="socials">
                 <li class="socials__item">
                     <a class="socials__link" href="" target="_blank">
