@@ -104,5 +104,11 @@
     bottom: 3.2rem;
     left: 3.8rem;
     position: absolute;
+
+    @include md-d {
+      left: auto;
+      right: 2rem;
+      bottom: 2rem;
+    }
   }
 }

@@ -104,7 +104,9 @@
   }
 
   &__phone {
-    align-items: start !important;
+    @include sm-d {
+      align-items: start !important;
+    }
   }
 }
 

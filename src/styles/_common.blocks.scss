@@ -84,6 +84,14 @@
     }
   }
 
+  &__break {
+    display: none;
+
+    @include xl-d {
+      display: inline;
+    }
+  }
+
   &__item {
     display: flex;
     flex-direction: column;
@@ -244,6 +252,7 @@
   background-color: var(--dh-white);
   border: 1px solid var(--dh-grey);
   position: relative;
+  box-shadow: 0 0.6rem 1.2rem #00000008;
 
   @include sm-d {
     height: auto;
@@ -409,7 +418,7 @@
 
 .card-disc {
   @include flex-col;
-  gap: 0.8rem;
+  gap: 1rem;
   padding-bottom: 1.2rem;
 
   &__item {
@@ -430,6 +439,7 @@
   &__divider {
     background-color: var(--dh-grey);
     margin-top: 1.2rem;
+    margin-bottom: 0.4rem;
   }
 }
 

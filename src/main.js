@@ -8,7 +8,10 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: false,
     slidesPerView: "auto",
     spaceBetween: 10,
-    freeMode: true,
+    freeMode: {
+      enabled: true,
+      sticky: true,
+    },
 
     navigation: {
       nextEl: ".reviews__swiper-next",
@@ -26,7 +29,10 @@ window.addEventListener("DOMContentLoaded", () => {
     loop: false,
     slidesPerView: "auto",
     spaceBetween: 10,
-    freeMode: true,
+    freeMode: {
+      enabled: true,
+      sticky: true,
+    },
 
     navigation: {
       nextEl: ".promotions__swiper-next",
