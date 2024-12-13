@@ -1109,6 +1109,7 @@ body {
   inset: 0;
   object-fit: cover;
   height: 100%;
+  width: 100%;
 }
 .review-card__gradient {
   position: absolute;
@@ -1407,6 +1408,10 @@ body {
 .footer-left__adress {
   max-width: 23.8rem;
   align-items: start;
+
+  &:hover {
+    text-decoration: underline;
+  }
 }
 @media (max-width: 575.98px) {
   .footer-left__adress {
@@ -1460,6 +1465,7 @@ body {
 .adress {
   display: flex;
   flex-direction: row;
+  color: var(--dh-white);
 }
 .phone {
   display: flex;

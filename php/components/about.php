@@ -19,8 +19,8 @@
                     <li class="badges-list__item">Акрил</li>
                 </ul>
             </div>
-            <a class="about-preview__video" data-fancybox data-src="#video-popup" href="javascript:;">
-                <img class="about-preview__video-preview" src="/assets/images/preview.jpg" alt="Мужчина работает" />
+            <a class="about-preview__video" data-fancybox data-src="#video-popup" href="javascript:;" data-video-src="/assets/videos/main-review.mp4">
+                <img class="about-preview__video-preview" src="/assets/images/cover.png" alt="Обложка видео" />
                 <div class="play about-preview__video-play">
                     <img class="play__img" src="/assets/images/play.svg" alt="Включить отзыв" />
                 </div>

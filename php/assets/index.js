@@ -100,17 +100,6 @@ backplate.addEventListener("click", (e) => {
   e.stopPropagation();
   closeMenu();
 });
-const initVideoPopups = () => {
-  const video = document.querySelector("video");
-  const triggers2 = document.querySelectorAll("[data-fancybox]");
-  triggers2.forEach((trigger) => {
-    trigger.addEventListener("click", () => {
-      const videoSrc = trigger.dataset.videoSrc;
-      video.src = videoSrc;
-      video.play();
-    });
-  });
-};
 const triggers = document.querySelectorAll("[data-trigger]");
 const container = document.querySelector(".popups-container");
 const popups = Array.from(container.querySelectorAll("[data-popup]"));
@@ -223,12 +212,23 @@ window.addEventListener("DOMContentLoaded", () => {
       prevEl: ".card__swiper-prev",
     },
   });
-  Fancybox.bind("[data-fancybox]");
+  const video = document.querySelector("video");
+  Fancybox.bind("[data-fancybox]", {
+    on: {
+      init: (fancybox) => {
+        video.src = fancybox.options.$trigger.dataset.videoSrc;
+        video.volume = 0.3;
+        video.play();
+      },
+      destroy: () => {
+        video.pause();
+      },
+    },
+  });
   new Tabs({
     repaintOnresize: true,
   });
   initMobileMenu();
-  initVideoPopups();
   initPopups();
   initScroll();
   initNav();
