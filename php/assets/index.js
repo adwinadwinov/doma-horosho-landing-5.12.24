@@ -167,6 +167,67 @@ const initNav = () => {
     }),
   );
 };
+// const showGoods = (goods, count) => {
+// goods.forEach((good, index) => {
+//   if (index < count) {
+//     good.style.display = "block";
+//   } else {
+//     good.style.display = "none";
+//   }
+// });
+// const showEvent = new Event("show-catalog");
+// const moreBtn = document.querySelector(".js-catalog-button");
+// const btnText = moreBtn.querySelector(".js-btn-catalog-content");
+// const catalogGrid = document.querySelector(".js-catalog-grid");
+// let goodsOnPage = 6;
+// const goods = Array.from(catalogGrid.children);
+// showGoods(goods, goodsOnPage);
+// moreBtn.addEventListener("click", () => {
+//   if (goodsOnPage < goods.length) {
+//     goodsOnPage += 6;
+//   } else {
+//     goodsOnPage = 6;
+//   }
+//   showGoods(goods, goodsOnPage);
+// });
+// };
+const showGoods = (goods, count) => {
+  goods.forEach((good, index) => {
+    if (index < count) {
+      good.style.display = "block";
+    } else {
+      good.style.display = "none";
+    }
+  });
+};
+const initCatalog = () => {
+  const catalogPanel = document.querySelectorAll(".js-tab-panel");
+  const GOODS_ON_PAGE = 6;
+
+  catalogPanel.forEach((panel) => {
+    const moreBtn = panel.querySelector(".js-catalog-button");
+    const moreBtnText = moreBtn.querySelector(".js-btn-catalog-content");
+    const goods = Array.from(panel.querySelector(".js-catalog-grid").children);
+    let currentGoods = GOODS_ON_PAGE;
+    showGoods(goods, currentGoods);
+
+    moreBtn.addEventListener("click", () => {
+      if (currentGoods >= goods.length) {
+        currentGoods = 0;
+        window.scrollTo({
+          top: panel.offsetTop,
+          behavior: "smooth",
+        });
+        moreBtnText.innerText = "Показать ещё";
+      }
+      currentGoods += GOODS_ON_PAGE;
+      if (currentGoods >= goods.length) {
+        moreBtnText.innerText = "Свернуть";
+      }
+      showGoods(goods, currentGoods);
+    });
+  });
+};
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
     loop: false,
@@ -232,4 +293,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initPopups();
   initScroll();
   initNav();
+  initCatalog();
 });

@@ -27,15 +27,15 @@
         </div>
         <div class="tabs-content">
             <div
-                class="tabs-content__panel"
+                class="tabs-content__panel js-tab-panel"
                 id="kitchens-tab"
                 tabindex="0"
                 data-value="kitchens"
                 aria-labelledby="kitchens-btn"
                 role="tabpanel">
-                <div class="catalog__grid">
+                <div class="catalog__grid js-catalog-grid">
                     <? foreach ($catalog['kitchens'] as $kitchen) : ?>
-                        <article class="card">
+                        <article class="card" style="display: none;">
                             <div class="swiper card__swiper">
                                 <button class="card__swiper-prev">
                                     <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
@@ -89,16 +89,72 @@
                         </article>
                     <? endforeach; ?>
                 </div>
-                <button class="button button--full catalog__button"><img src="/assets/images/plus-circle.svg" alt="Плюсик" /> Показать ещё</button>
+                <button class="button button--full catalog__button js-catalog-button"><img src="/assets/images/plus-circle.svg" alt="Плюсик" /> <span class="js-btn-catalog-content">Показать ещё</span></button>
             </div>
             <div
-                class="tabs-content__panel"
+                class="tabs-content__panel js-tab-panel"
                 id="wardrobes-tab"
                 tabindex="0"
                 data-value="wardrobes"
                 aria-labelledby="wardrobes-btn"
                 role="tabpanel">
-                <div class="catalog__grid"></div>
+                <div class="catalog__grid js-catalog-grid">
+                    <? foreach ($catalog['kitchens'] as $kitchen) : ?>
+                            <article class="card" style="display: none;">
+                                <div class="swiper card__swiper">
+                                    <button class="card__swiper-prev">
+                                        <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
+                                    </button>
+                                    <button class="card__swiper-next">
+                                        <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
+                                    </button>
+                                    <div class="swiper-wrapper">
+                                        <div class="swiper-slide card__swiper-slide">
+                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
+                                        </div>
+                                        <div class="swiper-slide card__swiper-slide">
+                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
+                                        </div>
+                                        <div class="swiper-slide card__swiper-slide">
+                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="card-footer">
+                                    <div class="card-footer__content">
+                                        <div class="card-footer__heading">
+                                            <div class="card-meta">
+                                                <p class="card-meta__type">Кухня</p>
+                                                <h3 class="card-meta__title"><?= $kitchen['name']; ?></h3>
+                                            </div>
+                                            <div class="card-prices">
+                                                <div class="card-prices__price">от <?= $kitchen['price']; ?> ₽</div>
+                                                <div class="card-prices__discount">от <?= $kitchen['discount']; ?> ₽</div>
+                                            </div>
+                                        </div>
+                                        <ul class="card-disc card-footer__disc">
+                                            <li class="divider card-disc__divider"></li>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery">Фасады</span><span class="card-disc__value">ЛДСП EGGER</span>
+                                            </li>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery">Корпус</span><span class="card-disc__value">ЛДСП EGGER</span>
+                                            </li>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value"><?= $kitchen['size'] ?></span>
+                                            </li>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от 10 500 ₽/мес</span>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <button class="button card-footer__button" data-trigger="popup-calc">Запросить расчёт</button>
+                                    <p class="card-footer__sub">Цена за данную комплектацию</p>
+                                </div>
+                            </article>
+                        <? endforeach; ?>
+                </div>
+                <button class="button button--full catalog__button js-catalog-button"><img src="/assets/images/plus-circle.svg" alt="Плюсик" /> <span class="js-btn-catalog-content">Показать ещё</span></button>
             </div>
         </div>
     </div>
