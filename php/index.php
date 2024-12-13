@@ -5,6 +5,7 @@ error_reporting(E_ALL);
 ?>
 
 <? include_once $_SERVER['DOCUMENT_ROOT'] . '/settings.php' ?>
+<? include_once $_SERVER['DOCUMENT_ROOT'] . '/db/parse.php' ?>
 
 <!doctype html>
 <html lang="ru">
