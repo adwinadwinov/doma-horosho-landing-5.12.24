@@ -13,7 +13,9 @@
                     <img class="adress__img" src="/assets/images/adress.svg" alt="Адрес" /><?= $CONTACTS['adress']['value']; ?>
                 </a>
             </div>
-            <div class="footer-left__widget">Виджет</div>
+            <div class="footer-left__widget">
+                <iframe style="width:100%;height:100%;" src="https://yandex.ru/maps-reviews-widget/152293784800"></iframe>
+            </div>
         </div>
         <div class="footer-right">
             <div class="phone footer-right__phone">

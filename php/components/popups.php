@@ -119,8 +119,8 @@
         </div>
     </div>
 </div>
-<div style="width: 100%; max-width: fit-content; display: none; padding: 0; border-radius: 20px; background-color: transparent" id="video-popup">
-    <video controls autoplay style="width: auto; max-height: 500px; padding: 0">
+<div style="width: 100%; max-width: fit-content; display: none; padding: 0; background-color: transparent" id="video-popup">
+    <video controls autoplay style="width: auto; max-height: 500px; padding: 0; border-radius: 2rem;">
         Ваш браузер не поддерживает видео.
     </video>
 </div>

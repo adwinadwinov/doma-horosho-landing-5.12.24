@@ -254,6 +254,9 @@ body {
   color: var(--dh-jet);
   font-weight: 500;
 }
+.fancybox-image {
+  border-radius: 2rem;
+}
 .advantages__list {
   display: grid;
   column-gap: 3.2rem;
@@ -1408,6 +1411,12 @@ body {
 .footer__divider {
   margin-top: 2rem;
   margin-bottom: 1.4rem;
+}
+.footer-left__widget {
+  border-radius: 2rem;
+  width: 15rem;
+  height: 9.6rem;
+  overflow: hidden;
 }
 .footer__policy {
   text-align: center;

@@ -2,10 +2,15 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/png" href="/assets/favicon.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
-    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="/assets/lib/fancy-box/fancybox.css">
+    <script src="/assets/lib/fancy-box/fancybox.umd.js" async></script>
+    <link rel="stylesheet" href="/assets/lib/swiper/swiper-bundle.min.css">
+    <script src="/assets/lib/swiper/swiper-bundle.min.js" async></script>
     <title>Дома хорошо</title>
+    <link rel="preload" href="/assets/fonts/Montserrat-Bold.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Montserrat-Medium.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Montserrat-Regular.ttf" as="font" type="font/ttf" crossorigin>
+    <link rel="preload" href="/assets/fonts/Montserrat-SemiBold.ttf" as="font" type="font/ttf" crossorigin>
     <link rel="stylesheet" href="/assets/index.css">
     <!-- Marquiz script start -->
     <script>

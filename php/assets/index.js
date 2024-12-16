@@ -277,7 +277,7 @@ window.addEventListener("DOMContentLoaded", () => {
   Fancybox.bind("[data-fancybox]", {
     on: {
       init: (fancybox) => {
-        video.src = fancybox.options.$trigger.dataset.videoSrc;
+        video.src = fancybox.options.triggerEl.dataset.videoSrc;
         video.volume = 0.3;
         video.play();
       },
