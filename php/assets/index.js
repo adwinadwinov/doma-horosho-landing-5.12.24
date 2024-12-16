@@ -272,7 +272,12 @@ const initFormHadler = () => {
       try {
         const sendData = new FormData(form);
         sendData.append('cb-type', form.querySelector('.callback-kind__btn--active').dataset.callbackType);
-        console.log([...sendData]);
+        
+        const res = await fetch('integrations/auth.php', {
+          method: 'POST',
+          body: sendData
+        });
+        console.log(res);
       } catch (error) {
         console.error('Ошибка при отправке формы');
         console.error(error);
