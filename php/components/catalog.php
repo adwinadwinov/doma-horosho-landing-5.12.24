@@ -44,15 +44,12 @@
                                     <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
                                 </button>
                                 <div class="swiper-wrapper">
-                                    <div class="swiper-slide card__swiper-slide">
-                                        <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                    </div>
-                                    <div class="swiper-slide card__swiper-slide">
-                                        <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                    </div>
-                                    <div class="swiper-slide card__swiper-slide">
-                                        <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                    </div>
+                                    <? foreach (explode(';', $kitchen['images']) as $image) : ?>
+                                        <div class="swiper-slide card__swiper-slide">
+                                            <img class="card__img" loading="lazy" src="/assets/images/kitchens/<?= $image; ?>" alt="Кухня" />
+                                            <div class="loader card__img-loader"></div>
+                                        </div>
+                                    <? endforeach; ?>
                                 </div>
                             </div>
                             <div class="card-footer">
@@ -99,7 +96,7 @@
                 aria-labelledby="wardrobes-btn"
                 role="tabpanel">
                 <div class="catalog__grid js-catalog-grid">
-                    <? foreach ($catalog['kitchens'] as $kitchen) : ?>
+                    <? foreach ($catalog['wardrobes'] as $wardrobe) : ?>
                             <article class="card" style="display: none;">
                                 <div class="swiper card__swiper">
                                     <button class="card__swiper-prev">
@@ -109,27 +106,24 @@
                                         <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
                                     </button>
                                     <div class="swiper-wrapper">
-                                        <div class="swiper-slide card__swiper-slide">
-                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                        </div>
-                                        <div class="swiper-slide card__swiper-slide">
-                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                        </div>
-                                        <div class="swiper-slide card__swiper-slide">
-                                            <img class="card__img" src="/assets/images/infinity.png" alt="Кухня infinity" />
-                                        </div>
+                                        <? foreach (explode(';', $wardrobe['images']) as $image) : ?>
+                                            <div class="swiper-slide card__swiper-slide">
+                                                <img class="card__img" loading="lazy" src="/assets/images/wardrobes/<?= $image; ?>" alt="Шкаф" />
+                                                <div class="loader card__img-loader"></div>
+                                            </div>
+                                        <? endforeach; ?>
                                     </div>
                                 </div>
                                 <div class="card-footer">
                                     <div class="card-footer__content">
                                         <div class="card-footer__heading">
                                             <div class="card-meta">
-                                                <p class="card-meta__type">Кухня</p>
-                                                <h3 class="card-meta__title"><?= $kitchen['name']; ?></h3>
+                                                <p class="card-meta__type">Шкаф</p>
+                                                <h3 class="card-meta__title"><?= $wardrobe['name']; ?></h3>
                                             </div>
                                             <div class="card-prices">
-                                                <div class="card-prices__price">от <?= $kitchen['price']; ?> ₽</div>
-                                                <div class="card-prices__discount">от <?= $kitchen['discount']; ?> ₽</div>
+                                                <div class="card-prices__price">от <?= $wardrobe['price']; ?> ₽</div>
+                                                <div class="card-prices__discount">от <?= $wardrobe['discount']; ?> ₽</div>
                                             </div>
                                         </div>
                                         <ul class="card-disc card-footer__disc">
@@ -141,7 +135,7 @@
                                                 <span class="card-disc__propery">Корпус</span><span class="card-disc__value">ЛДСП EGGER</span>
                                             </li>
                                             <li class="card-disc__item">
-                                                <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value"><?= $kitchen['size'] ?></span>
+                                                <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value">тест</span>
                                             </li>
                                             <li class="card-disc__item">
                                                 <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от 10 500 ₽/мес</span>
