@@ -267,6 +267,7 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   new Swiper(".card__swiper", {
     loop: true,
+    lazy: true,
     slidesPerView: 1,
     navigation: {
       nextEl: ".card__swiper-next",
