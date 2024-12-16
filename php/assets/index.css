@@ -1873,3 +1873,6 @@ body {
 .mobile-menu__nav-link {
   font-size: 1.8rem;
 }
+input.error {
+  border-color: red;
+}

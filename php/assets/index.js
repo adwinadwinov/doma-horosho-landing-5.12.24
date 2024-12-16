@@ -167,30 +167,6 @@ const initNav = () => {
     }),
   );
 };
-// const showGoods = (goods, count) => {
-// goods.forEach((good, index) => {
-//   if (index < count) {
-//     good.style.display = "block";
-//   } else {
-//     good.style.display = "none";
-//   }
-// });
-// const showEvent = new Event("show-catalog");
-// const moreBtn = document.querySelector(".js-catalog-button");
-// const btnText = moreBtn.querySelector(".js-btn-catalog-content");
-// const catalogGrid = document.querySelector(".js-catalog-grid");
-// let goodsOnPage = 6;
-// const goods = Array.from(catalogGrid.children);
-// showGoods(goods, goodsOnPage);
-// moreBtn.addEventListener("click", () => {
-//   if (goodsOnPage < goods.length) {
-//     goodsOnPage += 6;
-//   } else {
-//     goodsOnPage = 6;
-//   }
-//   showGoods(goods, goodsOnPage);
-// });
-// };
 const showGoods = (goods, count) => {
   goods.forEach((good, index) => {
     if (index < count) {
@@ -228,6 +204,84 @@ const initCatalog = () => {
     });
   });
 };
+const inputs = document.querySelectorAll('input')
+function getPhoneValue(value) {
+  let val = value.replace(/\D/g, '')
+
+  if (val) {
+    if (val[0] === '7' || val[0] === '8') {
+      val = val.slice(1)
+    }
+
+    val = val.match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/)
+    val = '+7' + (val[2] ? '(' + val[1] + ')' + val[2] : (val[1] ? val[1] : '')) + (val[3] ? '-' + val[3] : '') + (val[4] ? '-' + val[4] : '')
+  }
+
+  return val
+}
+inputs.forEach(input => {
+  input.addEventListener('input', () => {
+    input.classList.remove('error')
+
+    if (input.type === 'tel') {
+      input.value = getPhoneValue(input.value)
+    }
+  })
+})
+function validateInputs(form) {
+  const requiredInputs = form.querySelectorAll('input[data-required]')
+  let isError = false
+
+  requiredInputs.forEach(input => {
+    const isTel = input.type === 'tel'
+
+    if (input.value.trim() === '') {
+      isError = true
+      input.classList.add('error')
+    }
+
+    if (isTel && input.value.length < 16) {
+      isError = true
+      input.classList.add('error')
+    }
+  })
+
+  return !isError
+}
+const initFormHadler = () => {
+  const forms = document.querySelectorAll('.js-form');
+
+  forms.forEach(form => {
+    const callBackTypes = form.querySelectorAll('.js-callback-kind__btn');
+    callBackTypes.forEach((btn) => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+
+        callBackTypes.forEach((btn) => btn.classList.remove('callback-kind__btn--active'));
+        btn.classList.add('callback-kind__btn--active');
+      });
+    });
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      const isCorrect = validateInputs(form)
+
+      if (!isCorrect) return
+
+      try {
+        const sendData = new FormData(form);
+        sendData.append('cb-type', form.querySelector('.callback-kind__btn--active').dataset.callbackType);
+        console.log([...sendData]);
+      } catch (error) {
+        console.error('Ошибка при отправке формы');
+        console.error(error);
+      } finally {
+        console.log('finally');
+      }
+    });
+  });
+}
 window.addEventListener("DOMContentLoaded", () => {
   new Swiper(".reviews__swiper", {
     loop: false,
@@ -267,7 +321,6 @@ window.addEventListener("DOMContentLoaded", () => {
   });
   new Swiper(".card__swiper", {
     loop: true,
-    lazy: true,
     slidesPerView: 1,
     navigation: {
       nextEl: ".card__swiper-next",
@@ -295,4 +348,5 @@ window.addEventListener("DOMContentLoaded", () => {
   initScroll();
   initNav();
   initCatalog();
+  initFormHadler();
 });
