@@ -105,7 +105,10 @@ const container = document.querySelector(".popups-container");
 const popups = Array.from(container.querySelectorAll("[data-popup]"));
 const popupBg = document.querySelector(".popups-bg");
 const initPopups = () => {
-  triggers.forEach((trigger) => trigger.addEventListener("click", openPopup));
+  triggers.forEach((trigger) => trigger.addEventListener("click", (e) => {
+    const target = trigger.dataset.target;
+    openPopup(e, target)
+  }));
   container.addEventListener("click", (e) => {
     if (e.target.classList.contains("close-btn") || e.target === container) {
       closePopup(e);
@@ -117,9 +120,10 @@ const initPopups = () => {
     }
   });
 };
-const openPopup = (e) => {
+const openPopup = (e, targetGood) => {
   e.preventDefault();
-  const target = popups.find((popup2) => popup2.dataset.popup === e.target.dataset.trigger);
+  const target = popups.find((popup) => popup.dataset.popup === e.target.dataset.trigger);
+  target.dataset.target = targetGood;
   if (!target) throw new Error("!попап не найден");
   document.body.style.overflow = "hidden";
   document.body.setAttribute("data-popup", target.dataset.popup);
@@ -130,7 +134,7 @@ const openPopup = (e) => {
 };
 const closePopup = (e) => {
   e.preventDefault();
-  const target = popups.find((popup2) => popup2.dataset.popup === document.body.dataset.popup);
+  const target = popups.find((popup) => popup.dataset.popup === document.body.dataset.popup);
   if (!target) throw new Error("!попап не найден");
   document.body.style.overflow = "visible";
   document.body.removeAttribute("data-popup");
@@ -271,9 +275,10 @@ const initFormHadler = () => {
 
       try {
         const sendData = new FormData(form);
-        sendData.append('cb-type', form.querySelector('.callback-kind__btn--active').dataset.callbackType);
+        sendData.append('callback', form.querySelector('.callback-kind__btn--active').dataset.callbackType);
+        sendData.append('target', document.querySelector('.calc-popup').dataset.target);
         
-        const res = await fetch('integrations/auth.php', {
+        const res = await fetch('integrations/amo.php', {
           method: 'POST',
           body: sendData
         });

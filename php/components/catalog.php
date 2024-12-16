@@ -38,7 +38,7 @@
                         <article class="card" style="display: none;">
                             <div class="swiper card__swiper">
                                 <button class="card__swiper-prev">
-                                    <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
+                                    <img src="/assets/images/chevron.svg" alt="Стрелка влево" />
                                 </button>
                                 <button class="card__swiper-next">
                                     <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
@@ -82,7 +82,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="button card-footer__button" data-trigger="popup-calc">Запросить расчёт</button>
+                                <button class="button card-footer__button" data-trigger="popup-calc" data-target="Кухня">Запросить расчёт</button>
                                 <p class="card-footer__sub">Цена за данную комплектацию</p>
                             </div>
                         </article>
@@ -102,7 +102,7 @@
                         <article class="card" style="display: none;">
                             <div class="swiper card__swiper">
                                 <button class="card__swiper-prev">
-                                    <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
+                                    <img src="/assets/images/chevron.svg" alt="Стрелка влево" />
                                 </button>
                                 <button class="card__swiper-next">
                                     <img src="/assets/images/chevron.svg" alt="Стрелка вправо" />
@@ -146,7 +146,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="button card-footer__button" data-trigger="popup-calc">Запросить расчёт</button>
+                                <button class="button card-footer__button" data-trigger="popup-calc" data-target="Шкаф">Запросить расчёт</button>
                                 <p class="card-footer__sub">Цена за данную комплектацию</p>
                             </div>
                         </article>
