@@ -1,9 +1,11 @@
+// ################ Логика табов каталога ################ //
 class Tabs {
   _tabComponent;
   _tabPanels;
   _tabTriggers;
   _currentTab;
   _indicatorSlide;
+
   constructor({ tabSelector, repaintOnresize }) {
     this._tabComponent = document.querySelector(tabSelector || ".tabs");
     this._initTabs();
@@ -11,6 +13,7 @@ class Tabs {
       this._resizeControl();
     }
   }
+
   _initTabs() {
     this._tabTriggers = Array.from(this._tabComponent.querySelectorAll(".tabs-triggers__btn"));
     this._tabPanels = Array.from(this._tabComponent.querySelectorAll(".tabs-content__panel"));
@@ -24,11 +27,13 @@ class Tabs {
       });
     });
   }
+
   _resizeControl() {
     window.addEventListener("resize", () => {
       this._handleIndicator(this._currentTab);
     });
   }
+
   _changeActiveTab(trigger) {
     if (trigger.classList.contains("tabs-triggers__btn--active")) return;
     const value = trigger.dataset.value;
@@ -38,23 +43,27 @@ class Tabs {
         panel.classList.remove("tabs-content__panel--active");
       }
     });
-    this._tabTriggers.forEach((trigger2) => {
-      if (trigger2.classList.contains("tabs-triggers__btn--active")) {
-        trigger2.classList.remove("tabs-triggers__btn--active");
+
+    this._tabTriggers.forEach((tabTrigger) => {
+      if (tabTrigger.classList.contains("tabs-triggers__btn--active")) {
+        tabTrigger.classList.remove("tabs-triggers__btn--active");
       }
     });
+
     targetTab.classList.add("tabs-content__panel--active");
     trigger.classList.add("tabs-triggers__btn--active");
     this._handleSelectedAccessibility(trigger);
     this._currentTab = trigger;
     this._handleIndicator(trigger);
   }
+
   _handleSelectedAccessibility(target) {
     this._tabTriggers.forEach((trigger) => {
       trigger.ariaSelected = false;
     });
     target.ariaSelected = true;
   }
+
   _handleIndicator(trigger) {
     document.fonts.ready.then(() => {
       const width = this._currentTab.offsetWidth;
@@ -64,10 +73,13 @@ class Tabs {
     });
   }
 }
+
+// ################ Логика появления мобильного nav ################ //
 const mobileBtn = document.querySelector(".js-mobile-button");
 const menu = document.querySelector(".js-mobile-menu");
 const header = document.querySelector(".js-header");
 const backplate = document.querySelector(".js-mobile-menu__backplate");
+
 const initMobileMenu = () => {
   mobileBtn.addEventListener("click", () => {
     if (!mobileBtn.hasAttribute("data-open")) {
@@ -82,6 +94,7 @@ const initMobileMenu = () => {
     });
   });
 };
+
 const closeMenu = () => {
   mobileBtn.removeAttribute("data-open");
   menu.classList.remove("mobile-menu--open");
@@ -89,6 +102,7 @@ const closeMenu = () => {
   document.body.classList.remove("scroll-lock");
   mobileBtn.ariaExpanded = false;
 };
+
 const openMenu = () => {
   mobileBtn.setAttribute("data-open", "");
   menu.classList.add("mobile-menu--open");
@@ -96,19 +110,26 @@ const openMenu = () => {
   document.body.classList.add("scroll-lock");
   mobileBtn.ariaExpanded = true;
 };
+
 backplate.addEventListener("click", (e) => {
   e.stopPropagation();
   closeMenu();
 });
+
+// ################ Логика попапов ################ //
+
 const triggers = document.querySelectorAll("[data-trigger]");
 const container = document.querySelector(".popups-container");
 const popups = Array.from(container.querySelectorAll("[data-popup]"));
 const popupBg = document.querySelector(".popups-bg");
+
 const initPopups = () => {
-  triggers.forEach((trigger) => trigger.addEventListener("click", (e) => {
-    const target = trigger.dataset.target;
-    openPopup(e, target)
-  }));
+  triggers.forEach((trigger) =>
+    trigger.addEventListener("click", (e) => {
+      const target = trigger.dataset.target;
+      openPopup(e, target);
+    }),
+  );
   container.addEventListener("click", (e) => {
     if (e.target.classList.contains("close-btn") || e.target === container) {
       closePopup(e);
@@ -120,6 +141,7 @@ const initPopups = () => {
     }
   });
 };
+
 const openPopup = (e, targetGood) => {
   e.preventDefault();
   const target = popups.find((popup) => popup.dataset.popup === e.target.dataset.trigger);
@@ -132,6 +154,7 @@ const openPopup = (e, targetGood) => {
   container.classList.add("popups-container--show");
   target.classList.add("popup--show");
 };
+
 const closePopup = (e) => {
   e.preventDefault();
   const target = popups.find((popup) => popup.dataset.popup === document.body.dataset.popup);
@@ -143,25 +166,31 @@ const closePopup = (e) => {
   container.classList.remove("popups-container--show");
   target.classList.remove("popup--show");
 };
+
+// ################ Логика поведения шапки при скролле ################ //
+
 const initScroll = () => {
-  const header2 = document.querySelector(".header");
+  const header = document.querySelector(".js-header");
   Motion.scroll((_, info) => {
     const diff = info.y.velocity;
     const currentScroll = info.y.current;
-    if (currentScroll > 80 && !header2.classList.contains("header--shadow")) {
-      header2.classList.add("header--shadow");
+    if (currentScroll > 80 && !header.classList.contains("header--shadow")) {
+      header.classList.add("header--shadow");
     }
     if (currentScroll <= 80) {
-      header2.classList.remove("header--shadow");
+      header.classList.remove("header--shadow");
     }
-    if (diff > 0 && info.y.current > 80 && !header2.classList.contains("header--scroll-hidden")) {
-      header2.classList.add("header--scroll-hidden");
+    if (diff > 0 && info.y.current > 80 && !header.classList.contains("header--scroll-hidden")) {
+      header.classList.add("header--scroll-hidden");
     }
     if (diff < 0) {
-      header2.classList.remove("header--scroll-hidden");
+      header.classList.remove("header--scroll-hidden");
     }
   });
 };
+
+// ################ Логика переключения таба каталога при выборе его типа в шапке ################ //
+
 const initNav = () => {
   const navLinks = document.querySelectorAll("[data-catalog]");
   navLinks.forEach((link) =>
@@ -171,6 +200,9 @@ const initNav = () => {
     }),
   );
 };
+
+// ################ Логика "Показать еще" ################ //
+
 const showGoods = (goods, count) => {
   goods.forEach((good, index) => {
     if (index < count) {
@@ -180,6 +212,7 @@ const showGoods = (goods, count) => {
     }
   });
 };
+
 const initCatalog = () => {
   const catalogPanel = document.querySelectorAll(".js-tab-panel");
   const GOODS_ON_PAGE = 6;
@@ -208,91 +241,103 @@ const initCatalog = () => {
     });
   });
 };
-const inputs = document.querySelectorAll('input')
+
+// ################ Логика работы формы "Заказать расчет" ################ //
+
+const inputs = document.querySelectorAll("input");
+
 function getPhoneValue(value) {
-  let val = value.replace(/\D/g, '')
+  let val = value.replace(/\D/g, "");
 
   if (val) {
-    if (val[0] === '7' || val[0] === '8') {
-      val = val.slice(1)
+    if (val[0] === "7" || val[0] === "8") {
+      val = val.slice(1);
     }
 
-    val = val.match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/)
-    val = '+7' + (val[2] ? '(' + val[1] + ')' + val[2] : (val[1] ? val[1] : '')) + (val[3] ? '-' + val[3] : '') + (val[4] ? '-' + val[4] : '')
+    val = val.match(/(\d{0,3})(\d{0,3})(\d{0,2})(\d{0,2})/);
+    val =
+      "+7" + (val[2] ? "(" + val[1] + ")" + val[2] : val[1] ? val[1] : "") + (val[3] ? "-" + val[3] : "") + (val[4] ? "-" + val[4] : "");
   }
 
-  return val
+  return val;
 }
-inputs.forEach(input => {
-  input.addEventListener('input', () => {
-    input.classList.remove('error')
 
-    if (input.type === 'tel') {
-      input.value = getPhoneValue(input.value)
+inputs.forEach((input) => {
+  input.addEventListener("input", () => {
+    input.classList.remove("error");
+
+    if (input.type === "tel") {
+      input.value = getPhoneValue(input.value);
     }
-  })
-})
+  });
+});
+
 function validateInputs(form) {
-  const requiredInputs = form.querySelectorAll('input[data-required]')
-  let isError = false
+  const requiredInputs = form.querySelectorAll("input[data-required]");
+  let isError = false;
 
-  requiredInputs.forEach(input => {
-    const isTel = input.type === 'tel'
+  requiredInputs.forEach((input) => {
+    const isTel = input.type === "tel";
 
-    if (input.value.trim() === '') {
-      isError = true
-      input.classList.add('error')
+    if (input.value.trim() === "") {
+      isError = true;
+      input.classList.add("error");
     }
 
     if (isTel && input.value.length < 16) {
-      isError = true
-      input.classList.add('error')
+      isError = true;
+      input.classList.add("error");
     }
-  })
+  });
 
-  return !isError
+  return !isError;
 }
-const initFormHadler = () => {
-  const forms = document.querySelectorAll('.js-form');
 
-  forms.forEach(form => {
-    const callBackTypes = form.querySelectorAll('.js-callback-kind__btn');
+const initFormHadler = () => {
+  const forms = document.querySelectorAll(".js-form");
+
+  forms.forEach((form) => {
+    const callBackTypes = form.querySelectorAll(".js-callback-kind__btn");
     callBackTypes.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
+      btn.addEventListener("click", (e) => {
         e.preventDefault();
 
-        callBackTypes.forEach((btn) => btn.classList.remove('callback-kind__btn--active'));
-        btn.classList.add('callback-kind__btn--active');
+        callBackTypes.forEach((btn) => btn.classList.remove("callback-kind__btn--active"));
+        btn.classList.add("callback-kind__btn--active");
       });
     });
 
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener("submit", async (e) => {
       e.preventDefault();
 
-      const isCorrect = validateInputs(form)
+      const isCorrect = validateInputs(form);
 
-      if (!isCorrect) return
+      if (!isCorrect) return;
 
       try {
         const sendData = new FormData(form);
-        sendData.append('callback', form.querySelector('.callback-kind__btn--active').dataset.callbackType);
-        sendData.append('target', document.querySelector('.calc-popup').dataset.target);
-        
-        const res = await fetch('integrations/amo.php', {
-          method: 'POST',
-          body: sendData
+        sendData.append("callback", form.querySelector(".callback-kind__btn--active").dataset.callbackType);
+        sendData.append("target", document.querySelector(".calc-popup").dataset.target);
+
+        const res = await fetch("integrations/amo.php", {
+          method: "POST",
+          body: sendData,
         });
         console.log(res);
       } catch (error) {
-        console.error('Ошибка при отправке формы');
+        console.error("Ошибка при отправке формы");
         console.error(error);
       } finally {
-        console.log('finally');
+        console.log("finally");
       }
     });
   });
-}
+};
+
+// ################ Общая инициализация ################ //
+
 window.addEventListener("DOMContentLoaded", () => {
+  // Свайперы
   new Swiper(".reviews__swiper", {
     loop: false,
     slidesPerView: "auto",
@@ -311,6 +356,7 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
+
   new Swiper(".promotions__swiper", {
     loop: false,
     slidesPerView: "auto",
@@ -329,6 +375,7 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
+
   new Swiper(".card__swiper", {
     loop: true,
     slidesPerView: 1,
@@ -337,6 +384,8 @@ window.addEventListener("DOMContentLoaded", () => {
       prevEl: ".card__swiper-prev",
     },
   });
+
+  // Попап с видео
   const video = document.querySelector("video");
   Fancybox.bind("[data-fancybox]", {
     on: {
@@ -350,9 +399,13 @@ window.addEventListener("DOMContentLoaded", () => {
       },
     },
   });
+
+  // Табы каталога
   new Tabs({
     repaintOnresize: true,
   });
+
+  // инициализация других компонентов
   initMobileMenu();
   initPopups();
   initScroll();

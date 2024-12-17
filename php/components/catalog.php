@@ -1,4 +1,4 @@
-<section class="catalog section" id="catalog">    
+<section class="catalog section" id="catalog">
     <div class="tabs" data-default-value="kitchens" role="tabpanel">
         <div class="tabs-triggers catalog__tabs-triggers" role="tablist" aria-orientation="horizontal">
             <button
@@ -68,15 +68,17 @@
                                     </div>
                                     <ul class="card-disc card-footer__disc">
                                         <li class="divider card-disc__divider"></li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Фасады</span><span class="card-disc__value">ЛДСП EGGER</span>
-                                        </li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Корпус</span><span class="card-disc__value">ЛДСП EGGER</span>
-                                        </li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value"><?= $kitchen['size'] ?></span>
-                                        </li>
+                                        <? foreach (explode(';', $kitchen['material']) as $material) : ?>
+                                            <? $materials = explode(':', $material); ?>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery"><?= $materials[0]; ?></span><span class="card-disc__value"><?= $materials[1]; ?></span>
+                                            </li>
+                                        <? endforeach; ?>
+                                        <? if (isset($kitchen['size']) && strlen($kitchen['size']) != 0) : ?>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value"><?= $kitchen['size'] ?></span>
+                                            </li>
+                                        <? endif; ?>
                                         <li class="card-disc__item">
                                             <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $kitchen['price']) / 12, -1); ?> ₽/мес</span>
                                         </li>
@@ -132,15 +134,12 @@
                                     </div>
                                     <ul class="card-disc card-footer__disc">
                                         <li class="divider card-disc__divider"></li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Фасады</span><span class="card-disc__value">ЛДСП EGGER</span>
-                                        </li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Корпус</span><span class="card-disc__value">ЛДСП EGGER</span>
-                                        </li>
-                                        <li class="card-disc__item">
-                                            <span class="card-disc__propery">Габариты, см</span><span class="card-disc__value">тест</span>
-                                        </li>
+                                        <? foreach (explode(';', $wardrobe['material']) as $material) : ?>
+                                            <? $materials = explode(':', $material); ?>
+                                            <li class="card-disc__item">
+                                                <span class="card-disc__propery"><?= $materials[0]; ?></span><span class="card-disc__value"><?= $materials[1]; ?></span>
+                                            </li>
+                                        <? endforeach; ?>
                                         <li class="card-disc__item">
                                             <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $kitchen['price']) / 12, -1); ?> ₽/мес</span>
                                         </li>
