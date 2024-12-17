@@ -31,8 +31,8 @@
     </div>
     <div class="hero-preview">
         <picture>
-            <source type="image/webp" srcset="/assets/images/family.webp" />
-            <img class="hero-preview__img" src="/assets/images/family.png" alt="Счастливая семья" />
+            <source type="image/webp" srcset="/assets/images/intro.webp" />
+            <img class="hero-preview__img" src="/assets/images/intro.png" alt="Кухня" />
         </picture>
         <div class="badge hero-preview__badge">
             <h4 class="badge__title">36</h4>

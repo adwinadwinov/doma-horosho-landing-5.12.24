@@ -126,13 +126,24 @@ const popupBg = document.querySelector(".popups-bg");
 const initPopups = () => {
   triggers.forEach((trigger) =>
     trigger.addEventListener("click", (e) => {
+      e.preventDefault();
+      const title = trigger.dataset.popupTitle;
       const target = trigger.dataset.target;
-      openPopup(e, target);
+      const isWs = trigger.hasAttribute("data-ws");
+      openPopup(
+        trigger.dataset.trigger,
+        {
+          title: title,
+          isWs: isWs,
+        },
+        target,
+      );
     }),
   );
   container.addEventListener("click", (e) => {
     if (e.target.classList.contains("close-btn") || e.target === container) {
-      closePopup(e);
+      e.preventDefault();
+      closePopup();
     }
   });
   document.addEventListener("keydown", (e) => {
@@ -142,11 +153,23 @@ const initPopups = () => {
   });
 };
 
-const openPopup = (e, targetGood) => {
-  e && e.preventDefault();
-  const target = popups.find((popup) => popup.dataset.popup === e.target.dataset.trigger);
+const POPUP_STANDART_TITLE = "Заказать расчет";
+
+const openPopup = (targetPopup, { title, isWs }, targetGood) => {
+  const target = popups.find((popup) => popup.dataset.popup === targetPopup);
   target.dataset.target = targetGood;
   if (!target) throw new Error("!попап не найден");
+
+  if (title) {
+    const popuptitle = target.querySelector(".js-popup__title");
+    popuptitle.innerText = title;
+  }
+
+  if (isWs) {
+    const cbs = target.querySelector(".js-calc-popup__cbs");
+    cbs.style.display = "none";
+  }
+
   document.body.style.overflow = "hidden";
   document.body.setAttribute("data-popup", target.dataset.popup);
   container.style.display = "flex";
@@ -155,16 +178,21 @@ const openPopup = (e, targetGood) => {
   target.classList.add("popup--show");
 };
 
-const closePopup = (e) => {
-  e && e.preventDefault();
+const closePopup = () => {
   const target = popups.find((popup) => popup.dataset.popup === document.body.dataset.popup);
+  target.removeAttribute("data-target");
   if (!target) throw new Error("!попап не найден");
+
   document.body.style.overflow = "visible";
   document.body.removeAttribute("data-popup");
   container.style.display = "none";
   popupBg.classList.remove("popups-bg--show");
   container.classList.remove("popups-container--show");
   target.classList.remove("popup--show");
+  const popuptitle = target.querySelector(".js-popup__title");
+  popuptitle.innerText = POPUP_STANDART_TITLE;
+  const cbs = target.querySelector(".js-calc-popup__cbs");
+  cbs.style.display = "flex";
 };
 
 // ################ Логика поведения шапки при скролле ################ //
@@ -242,11 +270,31 @@ const initCatalog = () => {
   });
 };
 
+// ################ Логика получения utm ################ //
+
+const getParam = (param) => {
+  const urlParams = new URL(window.location.toString()).searchParams;
+  return urlParams.get(param) || "";
+};
+
+const UTM_TYPES = {
+  utm_source: "",
+  utm_content: "",
+  utm_medium: "",
+  utm_campaign: "",
+  utm_term: "",
+  utm_referrer: "",
+};
+
+const getUtms = () => {
+  return Object.keys(UTM_TYPES).reduce((acc, utm) => ({ [utm]: getParam(utm), ...acc }), {});
+};
+
 // ################ Логика работы формы "Заказать расчет" ################ //
 
 const inputs = document.querySelectorAll("input");
 
-function getPhoneValue(value) {
+const getPhoneValue = (value) => {
   let val = value.replace(/\D/g, "");
 
   if (val) {
@@ -260,7 +308,7 @@ function getPhoneValue(value) {
   }
 
   return val;
-}
+};
 
 inputs.forEach((input) => {
   input.addEventListener("input", () => {
@@ -272,7 +320,7 @@ inputs.forEach((input) => {
   });
 });
 
-function validateInputs(form) {
+const validateInputs = (form) => {
   const requiredInputs = form.querySelectorAll("input[data-required]");
   let isError = false;
 
@@ -291,7 +339,24 @@ function validateInputs(form) {
   });
 
   return !isError;
-}
+};
+
+const resetForm = (form) => {
+  form.reset();
+  const cb = form.querySelector(".js-callback-kind__btn");
+  cb.click();
+};
+
+const FORM_STATUSES = {
+  PROCESSING: "processing",
+  IDLE: "idle",
+  SUCCESS: "success",
+  ERROR: "error",
+};
+
+const loader = document.createElement("div");
+loader.classList.add("loader-wrapper");
+loader.innerHTML = '<div class="loader"></div>';
 
 const initFormHadler = () => {
   const forms = document.querySelectorAll(".js-form");
@@ -311,25 +376,46 @@ const initFormHadler = () => {
       e.preventDefault();
 
       const isCorrect = validateInputs(form);
-
       if (!isCorrect) return;
+      if (form.dataset.status === FORM_STATUSES.PROCESSING) return;
 
       try {
         const sendData = new FormData(form);
+
+        const utms = getUtms();
         sendData.append("callback", form.querySelector(".callback-kind__btn--active").dataset.callbackType);
         sendData.append("target", document.querySelector(".calc-popup").dataset.target);
+        sendData.append("utms", JSON.stringify(utms));
 
-        const res = await fetch("integrations/amo.php", {
+        form.dataset.status = FORM_STATUSES.PROCESSING;
+        form.appendChild(loader);
+        const response = await fetch("integrations/amo.php", {
           method: "POST",
           body: sendData,
         });
 
-        closePopup();
+        if (!response.ok) {
+          throw new Error("Ошибка!");
+        }
+
+        form.dataset.status = FORM_STATUSES.SUCCESS;
       } catch (error) {
         console.error("Ошибка при отправке формы");
         console.error(error);
+        form.dataset.status = FORM_STATUSES.ERROR;
       } finally {
-        console.log("finally");
+        form.removeChild(loader);
+        closePopup();
+        if (form.dataset.status === FORM_STATUSES.SUCCESS) {
+          openPopup("success-popup");
+        }
+
+        if (form.dataset.status === FORM_STATUSES.ERROR) {
+          openPopup("error-popup");
+        }
+
+        form.dataset.status = FORM_STATUSES.IDLE;
+        resetForm(form);
       }
     });
   });

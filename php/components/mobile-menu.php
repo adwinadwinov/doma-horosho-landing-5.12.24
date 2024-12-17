@@ -27,7 +27,7 @@
                 </svg>
                 <?= $CONTACTS['header_phone']['value']; ?>
             </a>
-            <a href="<?= $CONTACTS['socials']['wats_app']; ?>" class="button" role="button">Связаться в WhatsApp</a>
+            <a class="button" data-trigger="popup-calc" data-popup-title="Мы свяжемся с вами в WhatsApp" data-ws>Связаться в WhatsApp</a>
         </div>
     </div>
 </div>

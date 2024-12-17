@@ -84,7 +84,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="button card-footer__button" data-trigger="popup-calc" data-target="Кухня">Запросить расчёт</button>
+                                <button class="button card-footer__button" data-trigger="popup-calc" data-popup-title="Запросить расчет" data-target="Кухня">Запросить расчёт</button>
                                 <p class="card-footer__sub">Цена за данную комплектацию</p>
                             </div>
                         </article>
@@ -145,7 +145,7 @@
                                         </li>
                                     </ul>
                                 </div>
-                                <button class="button card-footer__button" data-trigger="popup-calc" data-target="Шкаф">Запросить расчёт</button>
+                                <button class="button card-footer__button" data-trigger="popup-calc" data-popup-title="Запросить расчет" data-target="Шкаф">Запросить расчёт</button>
                                 <p class="card-footer__sub">Цена за данную комплектацию</p>
                             </div>
                         </article>

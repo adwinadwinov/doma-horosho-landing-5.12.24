@@ -1,4 +1,4 @@
-<section class="marquiz section">
+<section class="marquiz section" style="padding: 0;">
     <div data-marquiz-id="" style="max-width: none !important; margin: 0; border-radius: 2rem; overflow: hidden"></div>
     <script>
         (function(t, p) {

@@ -29,7 +29,7 @@
                 </a>
                 <p class="phone__sub">ежедневно с 10 до 22</p>
             </div>
-            <a class="button button--orange footer-right__button" href="<?= $CONTACTS['socials']['wats_app']; ?>" target="_blank">Связаться в WhatsApp</a>
+            <button class="button button--orange footer-right__button" data-trigger="popup-calc" data-popup-title="Мы свяжемся с вами в WhatsApp" data-ws>Связаться в WhatsApp</button>
             <ul class="socials">
                 <li class="socials__item">
                     <a class="socials__link" href="<?= $CONTACTS['socials']['vk']; ?>" target="_blank">
