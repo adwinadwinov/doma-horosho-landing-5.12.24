@@ -80,7 +80,7 @@
                                             </li>
                                         <? endif; ?>
                                         <li class="card-disc__item">
-                                            <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $kitchen['price']) / 12, -1); ?> ₽/мес</span>
+                                            <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $kitchen['discount']) / 12, -1); ?> ₽/мес</span>
                                         </li>
                                     </ul>
                                 </div>
@@ -141,7 +141,7 @@
                                             </li>
                                         <? endforeach; ?>
                                         <li class="card-disc__item">
-                                            <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $kitchen['price']) / 12, -1); ?> ₽/мес</span>
+                                            <span class="card-disc__propery">Рассрочка 0-0-12</span><span class="card-disc__value">от <?= round((int)str_replace(' ', '', $wardrobe['discount']) / 12, -1); ?> ₽/мес</span>
                                         </li>
                                     </ul>
                                 </div>

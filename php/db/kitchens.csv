@@ -6,8 +6,6 @@ name,price,discount,material,size,,images
 Неоклассика,"129 500  
 ",99 500,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,3000х1200х2500х600,,neoklassika/1.jpg;neoklassika/2.jpg;neoklassika/3.jpg
 Довер,86 400,86 400,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,2700х800х2450х600,,provans/1.jpg;provans/2.jpg
-Прованс,"150 000  
-",106 300,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,2200х1700х2600х600,,provans/1.jpg;provans/2.jpg;provans/3.jpg
 Минимализм,"168 000 
 ",131 600,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,1600х2400х2600х600,,minimalizm/1.jpg;minimalizm/2.jpg;minimalizm/3.jpg
 Интеграция,"159 500
@@ -52,6 +50,8 @@ name,price,discount,material,size,,images
 ",114 000,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,2000х1500х600,,vigo/1.jpg;vigo/2.jpg;vigo/3.jpg;vigo/4.jpg
 Ньюри,"115 000
 ",95 000,Корпус:ЛДСП EGGER;Фасады:ЛДСП EGGER,,,n'juri/1.jpg;n'juri/2.jpg;n'juri/3.jpg
+Прованс,"150 000  
+",106 300,Корпус:ЛДСП EGGER;Фасады:МДФ ПВХ,2200х1700х2600х600,,provans/1.jpg;provans/2.jpg;provans/3.jpg
 Белфаст,"104 500 
 ",91 200,Корпус:ЛДСП EGGER;Фасады:ЛДСП EGGER,,,belfast/1.jpg;belfast/2.jpg
 Каролина,"117 000
