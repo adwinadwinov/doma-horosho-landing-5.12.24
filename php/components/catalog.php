@@ -62,8 +62,8 @@
                                             <h3 class="card-meta__title"><?= $kitchen['name']; ?></h3>
                                         </div>
                                         <div class="card-prices">
-                                            <div class="card-prices__price">от <?= $kitchen['price']; ?> ₽</div>
-                                            <div class="card-prices__discount">от <?= $kitchen['discount']; ?> ₽</div>
+                                            <div class="card-prices__price">от <?= $kitchen['discount']; ?> ₽</div>
+                                            <div class="card-prices__discount">от <?= $kitchen['price']; ?> ₽</div>
                                         </div>
                                     </div>
                                     <ul class="card-disc card-footer__disc">
@@ -128,8 +128,8 @@
                                             <h3 class="card-meta__title"><?= $wardrobe['name']; ?></h3>
                                         </div>
                                         <div class="card-prices">
-                                            <div class="card-prices__price">от <?= $wardrobe['price']; ?> ₽</div>
-                                            <div class="card-prices__discount">от <?= $wardrobe['discount']; ?> ₽</div>
+                                            <div class="card-prices__price">от <?= $wardrobe['discount']; ?> ₽</div>
+                                            <div class="card-prices__discount">от <?= $wardrobe['price']; ?> ₽</div>
                                         </div>
                                     </div>
                                     <ul class="card-disc card-footer__disc">
