@@ -4,7 +4,7 @@ require_once 'access.php';
 $name = $_POST['name'];
 $phone = $_POST['phone'];
 $callback = $_POST['callback'];
-$target = $_POST['target'] ?? 'Кухня';
+$target = $_POST['target'];
 $source = 'Лэндинг';
 
 $utms = json_decode($_POST['utms'], true);

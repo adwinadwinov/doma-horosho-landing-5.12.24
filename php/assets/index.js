@@ -155,17 +155,17 @@ const initPopups = () => {
 
 const POPUP_STANDART_TITLE = "Заказать расчет";
 
-const openPopup = (targetPopup, { title, isWs }, targetGood) => {
+const openPopup = (targetPopup, settings, targetGood) => {
   const target = popups.find((popup) => popup.dataset.popup === targetPopup);
   target.dataset.target = targetGood;
   if (!target) throw new Error("!попап не найден");
 
-  if (title) {
+  if (settings && settings.title) {
     const popuptitle = target.querySelector(".js-popup__title");
-    popuptitle.innerText = title;
+    popuptitle.innerText = settings.title;
   }
 
-  if (isWs) {
+  if (settings && settings.isWs) {
     const cbs = target.querySelector(".js-calc-popup__cbs");
     cbs.style.display = "none";
   }
@@ -190,7 +190,9 @@ const closePopup = () => {
   container.classList.remove("popups-container--show");
   target.classList.remove("popup--show");
   const popuptitle = target.querySelector(".js-popup__title");
-  popuptitle.innerText = POPUP_STANDART_TITLE;
+  if (popuptitle) {
+    popuptitle.innerText = POPUP_STANDART_TITLE;
+  }
   const cbs = target.querySelector(".js-calc-popup__cbs");
   cbs.style.display = "flex";
 };
@@ -384,7 +386,8 @@ const initFormHadler = () => {
 
         const utms = getUtms();
         sendData.append("callback", form.querySelector(".callback-kind__btn--active").dataset.callbackType);
-        sendData.append("target", document.querySelector(".calc-popup").dataset.target);
+        const target = document.querySelector(".calc-popup").dataset.target;
+        sendData.append("target", target !== "undefined" ? target : "Кухня");
         sendData.append("utms", JSON.stringify(utms));
 
         form.dataset.status = FORM_STATUSES.PROCESSING;
