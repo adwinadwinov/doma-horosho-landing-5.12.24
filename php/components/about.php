@@ -34,13 +34,13 @@
             </p>
             <ul class="logo-list">
                 <li class="logo-list__item">
-                    <img src="" alt="Логотип" />
+                    <img class="logo-list__img" src="/assets/images/boyard.png" alt="Boyard" />
+                </li>
+                <li class="logo-list__item logo-list__item--translate-y">
+                    <img class="logo-list__img" src="/assets/images/hettich.png" alt="Hettich" />
                 </li>
                 <li class="logo-list__item">
-                    <img src="" alt="Логотип" />
-                </li>
-                <li class="logo-list__item">
-                    <img src="" alt="Логотип" />
+                    <img class="logo-list__img" src="/assets/images/egger.png" alt="Egger" />
                 </li>
             </ul>
         </div>

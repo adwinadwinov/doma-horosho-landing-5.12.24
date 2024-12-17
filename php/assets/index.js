@@ -143,7 +143,7 @@ const initPopups = () => {
 };
 
 const openPopup = (e, targetGood) => {
-  e.preventDefault();
+  e && e.preventDefault();
   const target = popups.find((popup) => popup.dataset.popup === e.target.dataset.trigger);
   target.dataset.target = targetGood;
   if (!target) throw new Error("!попап не найден");
@@ -156,7 +156,7 @@ const openPopup = (e, targetGood) => {
 };
 
 const closePopup = (e) => {
-  e.preventDefault();
+  e && e.preventDefault();
   const target = popups.find((popup) => popup.dataset.popup === document.body.dataset.popup);
   if (!target) throw new Error("!попап не найден");
   document.body.style.overflow = "visible";
@@ -323,7 +323,8 @@ const initFormHadler = () => {
           method: "POST",
           body: sendData,
         });
-        console.log(res);
+
+        closePopup();
       } catch (error) {
         console.error("Ошибка при отправке формы");
         console.error(error);
